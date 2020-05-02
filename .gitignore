@@ -90,3 +90,4 @@ Pipfile
 app/src/glyphs.c
 
 app/src/glyphs.h
+/build
