@@ -58,7 +58,7 @@ async function beforeEnd() {
 }
 
 async function debugScenario(sim, app) {
-    const path = [44, 118, 0, 0, 0];
+    const path = [44, 330, 0, 0, 0];
     let tx = JSON.stringify(example_tx_str);
 
     // do not wait here..

@@ -19,12 +19,12 @@ jest.setTimeout(30000)
 
 const example_tx_str = {
     "account_number": "108",
-    "chain_id": "cosmoshub-2",
+    "chain_id": "columbus-3",
     "fee": {
         "amount": [
             {
                 "amount": "600",
-                "denom": "uatom"
+                "denom": "uluna"
             }
         ],
         "gas": "200000"
@@ -32,17 +32,17 @@ const example_tx_str = {
     "memo": "",
     "msgs": [
         {
-            "type": "cosmos-sdk/MsgWithdrawDelegationReward",
+            "type": "distribution/MsgWithdrawDelegationReward",
             "value": {
-                "delegator_address": "cosmos1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah",
-                "validator_address": "cosmosvaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x"
+                "delegator_address": "terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl8ck7clh",
+                "validator_address": "terravaloper1kn3wugetjuy4zetlq6wadchfhvu3x7407xc2yx"
             }
         },
         {
-            "type": "cosmos-sdk/MsgWithdrawDelegationReward",
+            "type": "distribution/MsgWithdrawDelegationReward",
             "value": {
-                "delegator_address": "cosmos1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah",
-                "validator_address": "cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0"
+                "delegator_address": "terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl8ck7clh",
+                "validator_address": "terravaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9ufq6mv0"
             }
         }
     ],
@@ -119,8 +119,8 @@ describe('Basic checks', function () {
             await sim.start(sim_options);
             const app = new CosmosApp(sim.getTransport());
             // Derivation path. First 3 items are automatically hardened!
-            const path = [44, 118, 5, 0, 3];
-            const resp = await app.getAddressAndPubKey(path, "cosmos");
+            const path = [44, 330, 5, 0, 3];
+            const resp = await app.getAddressAndPubKey(path, "terra");
 
             console.log(resp);
 
@@ -130,7 +130,7 @@ describe('Basic checks', function () {
             expect(resp).toHaveProperty("bech32_address");
             expect(resp).toHaveProperty("compressed_pk");
 
-            expect(resp.bech32_address).toEqual("cosmos1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykwsld65");
+            expect(resp.bech32_address).toEqual("terra1rpml0hh6kc8g6at2lsatzkd550yc2ngnsachtt");
             expect(resp.compressed_pk.length).toEqual(33);
         } finally {
             await sim.close();
@@ -156,8 +156,8 @@ describe('Basic checks', function () {
             const app = new CosmosApp(sim.getTransport());
 
             // Derivation path. First 3 items are automatically hardened!
-            const path = [44, 118, 5, 0, 3];
-            const respRequest = app.showAddressAndPubKey(path, "cosmos");
+            const path = [44, 330, 5, 0, 3];
+            const respRequest = app.showAddressAndPubKey(path, "terra");
 
             // We need to wait until the app responds to the APDU
             await Zemu.sleep(2000);
@@ -181,7 +181,7 @@ describe('Basic checks', function () {
             expect(resp).toHaveProperty("bech32_address");
             expect(resp).toHaveProperty("compressed_pk");
 
-            expect(resp.bech32_address).toEqual("cosmos1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykwsld65");
+            expect(resp.bech32_address).toEqual("terra1rpml0hh6kc8g6at2lsatzkd550yc2ngnsachtt");
             expect(resp.compressed_pk.length).toEqual(33);
         } finally {
             await sim.close();
@@ -199,8 +199,8 @@ describe('Basic checks', function () {
             const app = new CosmosApp(sim.getTransport());
 
             // Derivation path. First 3 items are automatically hardened!
-            const path = [44, 118, 2147483647, 0, 4294967295];
-            const respRequest = app.showAddressAndPubKey(path, "cosmos");
+            const path = [44, 330, 2147483647, 0, 4294967295];
+            const respRequest = app.showAddressAndPubKey(path, "terra");
 
             // We need to wait until the app responds to the APDU
             await Zemu.sleep(2000);
@@ -226,7 +226,7 @@ describe('Basic checks', function () {
             expect(resp).toHaveProperty("bech32_address");
             expect(resp).toHaveProperty("compressed_pk");
 
-            expect(resp.bech32_address).toEqual("cosmos1ex7gkwwmq4vcgdwcalaq3t20pgwr37u6ntkqzh");
+            expect(resp.bech32_address).toEqual("terra1w546yt00vx7ed7c6kkrdy8df3r6rpln58wemg7");
             expect(resp.compressed_pk.length).toEqual(33);
         } finally {
             await sim.close();
@@ -267,7 +267,7 @@ describe('Basic checks', function () {
             expect(resp.error_message).toEqual("No errors");
 
             // Now verify the signature
-            const respPk = await app.getAddressAndPubKey(path, "cosmos");
+            const respPk = await app.getAddressAndPubKey(path, "terra");
             expect(respPk.return_code).toEqual(0x9000);
             expect(respPk.error_message).toEqual("No errors");
 
