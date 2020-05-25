@@ -4,7 +4,7 @@
 [![CircleCI](https://circleci.com/gh/terra-project/ledger-terra.svg?style=shield)](https://circleci.com/gh/terra-project/ledger-terra)
 [![CodeFactor](https://www.codefactor.io/repository/github/terra-project/ledger-terra/badge)](https://www.codefactor.io/repository/github/terra-project/ledger-terra)
 
-This project contains the Cosmos app for Ledger Nano S and X.
+This project contains the Terra app for Ledger Nano S and X.
 
 - Ledger Nano S/X Terra app
 - Specs / Documentation
@@ -12,6 +12,8 @@ This project contains the Cosmos app for Ledger Nano S and X.
 - Zemu tests
 
 The Terra app will be available soon in [Ledger Live](https://www.ledger.com/pages/ledger-live). Our preferred and recommended hardware wallet!
+
+If you are not a developer, please follow the below steps to install Cosmos ledger app on ledger live. If not, see [Development](#development) section to install Terra leger app from source code.
 
 - Open Ledger Live and go to Settings (gear icon on the right):
 
@@ -33,6 +35,7 @@ Please:
 - **Do not use a Ledger device with funds for development purposes.**
 - **Have a separate and marked device that is used ONLY for development and testing**
 
+<!--
 Tip:
 
 - In releases, you will find a precompiled test app. If you are just curious, you can run `zxtool.sh` and avoid building.
@@ -54,7 +57,7 @@ then run:
 ```sh
 ./zxtool.sh load
 ```
-
+-->
 # Development
 
 ## Preconditions
