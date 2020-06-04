@@ -26,12 +26,14 @@ include $(BOLOS_SDK)/Makefile.defines
 
 # Main app configuration
 APPNAME = "Terra"
-APPVERSION_M=2
-APPVERSION_N=12
+APPVERSION_M=1
+APPVERSION_N=0
 APPVERSION_P=0
 
 APPPATH = "44'/330'"
 APP_LOAD_PARAMS = --appFlags 0x200 --delete $(COMMON_LOAD_PARAMS) --path $(APPPATH)
+# New app, activate the 'Pending review' banner
+APP_LOAD_PARAMS += --tlvraw 9F:01
 
 ifeq ($(TARGET_NAME),TARGET_NANOS)
 SCRIPT_LD:=$(CURDIR)/script.ld
@@ -93,12 +95,14 @@ DEFINES       += HAVE_BAGL_FONT_OPEN_SANS_LIGHT_16PX
 
 DEFINES          += HAVE_UX_FLOW
 
-#SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
-SDK_SOURCE_PATH  += lib_ux
+DEFINES       += HAVE_BLE
+DEFINES       += HAVE_BLE_APDU BLE_COMMAND_TIMEOUT_MS=2000
+
+SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
 else
 # Assume Nano S
 DEFINES       += IO_SEPROXYHAL_BUFFER_SIZE_B=128
-DEFINES       += HAVE_BOLOS_UX COMPLIANCE_UX_160 HAVE_UX_LEGACY HAVE_UX_FLOW
+DEFINES       += COMPLIANCE_UX_160 HAVE_UX_LEGACY HAVE_UX_FLOW
 endif
 
 # X specific
@@ -147,7 +151,6 @@ APP_SOURCE_PATH += $(MY_DIR)/../deps/jsmn/src
 
 SDK_SOURCE_PATH += lib_stusb lib_stusb_impl
 
-#SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
 SDK_SOURCE_PATH  += lib_ux
 
 # Import generic rules from the SDK
