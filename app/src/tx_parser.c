@@ -130,8 +130,9 @@ __always_inline void append_key_item(int16_t token_index) {
 ///////////////////////////
 
 parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_token_index) {
-    parser_error_t err;
     const jsmntype_t token_type = parser_tx_obj.json.tokens[root_token_index].type;
+
+    CHECK_APP_CANARY()
 
     if (parser_tx_obj.tx == NULL || root_token_index < 0) {
         CHECK_APP_CANARY()
@@ -143,30 +144,36 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
     if (parser_tx_obj.query.max_level <= 0 || parser_tx_obj.query.max_depth <= 0 ||
         token_type == JSMN_STRING ||
         token_type == JSMN_PRIMITIVE) {
+        const bool skipTypeField =
+                parser_tx_obj.flags.cache_valid &&
+                parser_tx_obj.flags.msg_type_grouping &&
+                is_msg_type_field(parser_tx_obj.query.out_key) &&
+                parser_tx_obj.filter_msg_type_valid_idx != parser_tx_obj.query._item_index_current;
+
+        const bool skipFromFieldHidingRule =
+                parser_tx_obj.flags.msg_from_grouping_hide_all ||
+                parser_tx_obj.filter_msg_from_valid_idx != parser_tx_obj.query._item_index_current;
+
+        const bool skipFromField =
+                parser_tx_obj.flags.cache_valid &&
+                parser_tx_obj.flags.msg_from_grouping &&
+                is_msg_from_field(parser_tx_obj.query.out_key) &&
+                skipFromFieldHidingRule;
+
+        const bool skipField = skipFromField || skipTypeField;
 
         CHECK_APP_CANARY()
-
-        const bool groupedField = strcmp("msgs/type", parser_tx_obj.query.out_key) == 0;
-        CHECK_APP_CANARY()
-
-        const bool isMainIndex = parser_tx_obj.filter_msg_type_valid_idx != parser_tx_obj.query._item_index_current;
-        CHECK_APP_CANARY()
-
-        const bool skipItem = parser_tx_obj.flags.cache_valid == 1u &&
-                              parser_tx_obj.flags.msg_type_grouping == 1u &&
-                              groupedField &&
-                              isMainIndex;
 
         CHECK_APP_CANARY()
 
         // Early bail out
-        if (!skipItem && parser_tx_obj.query._item_index_current == parser_tx_obj.query.item_index) {
+        if (!skipField && parser_tx_obj.query._item_index_current == parser_tx_obj.query.item_index) {
             *ret_value_token_index = root_token_index;
             CHECK_APP_CANARY()
             return parser_ok;
         }
 
-        if (skipItem) {
+        if (skipField) {
             parser_tx_obj.query.item_index++;
         }
 
@@ -176,6 +183,8 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
     }
 
     uint16_t el_count;
+    parser_error_t err;
+
     CHECK_PARSER_ERR(object_get_element_count(&parser_tx_obj.json, root_token_index, &el_count))
 
     switch (token_type) {
@@ -190,10 +199,12 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
 
                 // Skip writing keys if we are actually exploring to count
                 append_key_item(key_index);
+                CHECK_APP_CANARY()
 
                 // When traversing objects both level and depth should be considered
                 parser_tx_obj.query.max_level--;
                 parser_tx_obj.query.max_depth--;
+
                 // Traverse the value, extracting subkeys
                 CHECK_APP_CANARY()
                 err = tx_traverse_find(value_index, ret_value_token_index);
@@ -207,6 +218,7 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
                 }
 
                 *(parser_tx_obj.query.out_key + key_len) = 0;
+                CHECK_APP_CANARY()
             }
             break;
         }
@@ -216,12 +228,15 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
                 CHECK_PARSER_ERR(array_get_nth_element(&parser_tx_obj.json,
                                                        root_token_index, i,
                                                        &element_index));
+                CHECK_APP_CANARY()
 
                 // When iterating along an array,
                 // the level does not change but we need to count the recursion
                 parser_tx_obj.query.max_depth--;
                 err = tx_traverse_find(element_index, ret_value_token_index);
                 parser_tx_obj.query.max_depth++;
+
+                CHECK_APP_CANARY()
 
                 if (err == parser_ok) {
                     CHECK_APP_CANARY()

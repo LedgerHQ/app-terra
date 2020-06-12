@@ -27,7 +27,7 @@ include $(BOLOS_SDK)/Makefile.defines
 # Main app configuration
 APPNAME = "Terra"
 APPVERSION_M=1
-APPVERSION_N=0
+APPVERSION_N=1
 APPVERSION_P=0
 
 APPPATH = "44'/330'"
@@ -93,12 +93,14 @@ DEFINES       += HAVE_BAGL_FONT_OPEN_SANS_LIGHT_16PX
 
 DEFINES          += HAVE_UX_FLOW
 
-#SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
-SDK_SOURCE_PATH  += lib_ux
+DEFINES       += HAVE_BLE
+DEFINES       += HAVE_BLE_APDU BLE_COMMAND_TIMEOUT_MS=2000
+
+SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
 else
 # Assume Nano S
 DEFINES       += IO_SEPROXYHAL_BUFFER_SIZE_B=128
-DEFINES       += HAVE_BOLOS_UX COMPLIANCE_UX_160 HAVE_UX_LEGACY HAVE_UX_FLOW
+DEFINES       += COMPLIANCE_UX_160 HAVE_UX_LEGACY HAVE_UX_FLOW
 endif
 
 # X specific
@@ -127,7 +129,12 @@ endif
 #########################
 
 CC := $(CLANGPATH)clang
-CFLAGS += -O3 -Os -Wno-unknown-pragmas
+#CFLAGS += -Werror
+CFLAGS += -O3 -Os -Wpedantic -Wall -Wno-unknown-pragmas -Wno-c11-extensions
+# To accept Ledger SDK issues
+CFLAGS += -Wno-missing-declarations -Wno-empty-translation-unit -Wno-language-extension-token
+CFLAGS += -Wno-embedded-directive -Wno-pointer-arith
+CFLAGS += -Wno-typedef-redefinition -Wno-newline-eof
 
 AS := $(GCCPATH)arm-none-eabi-gcc
 AFLAGS +=
@@ -147,7 +154,6 @@ APP_SOURCE_PATH += $(MY_DIR)/../deps/jsmn/src
 
 SDK_SOURCE_PATH += lib_stusb lib_stusb_impl
 
-#SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
 SDK_SOURCE_PATH  += lib_ux
 
 # Import generic rules from the SDK

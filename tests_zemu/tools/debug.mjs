@@ -14,12 +14,12 @@ const SIM_OPTIONS = {
 
 const example_tx_str = {
     "account_number": "108",
-    "chain_id": "cosmoshub-2",
+    "chain_id": "columbus-3",
     "fee": {
         "amount": [
             {
                 "amount": "600",
-                "denom": "uatom"
+                "denom": "uluna"
             }
         ],
         "gas": "200000"
@@ -27,17 +27,21 @@ const example_tx_str = {
     "memo": "",
     "msgs": [
         {
-            "type": "cosmos-sdk/MsgWithdrawDelegationReward",
+            "type": "distribution/MsgWithdrawDelegationReward",
             "value": {
-                "delegator_address": "cosmos1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah",
-                "validator_address": "cosmosvaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x"
+                "delegator_address": "terra19umvgcvk8cxsvzemy239nj9ngc2ltuka40jyr3",
+                "validator_address": "terravaloper1648ynlpdw7fqa2axt0w2yp3fk542junlaujy76"
             }
         },
         {
-            "type": "cosmos-sdk/MsgWithdrawDelegationReward",
+            "type": "staking/MsgDelegate",
             "value": {
-                "delegator_address": "cosmos1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah",
-                "validator_address": "cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0"
+                "amount": {
+                    "amount": "20139397",
+                    "denom": "uluna"
+                },
+                "delegator_address": "terra19umvgcvk8cxsvzemy239nj9ngc2ltuka40jyr3",
+                "validator_address": "terravaloper1648ynlpdw7fqa2axt0w2yp3fk542junlaujy76",
             }
         }
     ],
@@ -61,19 +65,26 @@ async function debugScenario(sim, app) {
     const path = [44, 330, 0, 0, 0];
     let tx = JSON.stringify(example_tx_str);
 
+//    await Zemu.default.sleep(120000);
+
+    const addr = await app.getAddressAndPubKey(path, "terra");
+    console.log(addr)
+
+    console.log(tx);
+
     // do not wait here..
     const signatureRequest = app.sign(path, tx);
     await Zemu.default.sleep(1000);
 
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
-    // await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickRight();
+    await sim.clickBoth();
 
     let resp = await signatureRequest;
     console.log(resp);
