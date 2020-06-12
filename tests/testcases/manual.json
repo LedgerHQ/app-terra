@@ -604,7 +604,7 @@
         "amount": [
           {
             "amount": "5000",
-            "denom": "uluna"
+            "denom": "atom"
           }
         ],
         "gas": "200000"
@@ -616,10 +616,10 @@
           "value": {
             "amount": {
               "amount": "1000000",
-              "denom": "uluna"
+              "denom": "atom"
             },
-            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24t3vwtpl",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24thg5trl",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         }
       ],
@@ -632,13 +632,13 @@
       "1 | Account : 6571",
       "2 | Sequence : 1",
       "3 | Type : Delegate",
-      "4 | Amount : 1000000 uluna",
-      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24t",
-      "5 | Delegator [2/2] : 3vwtpl",
-      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "6 | Validator [2/2] : 9m5s03xfytvz7",
+      "4 | Amount : 1000000 atom",
+      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24th",
+      "5 | Delegator [2/2] : g5trl",
+      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "6 | Validator [2/2] : m5s03x2mfyu7",
       "7 | Memo : Zondax.ch",
-      "8 | Fee : 5000 uluna",
+      "8 | Fee : 5000 atom",
       "9 | Gas : 200000"
     ],
     "expert": true
@@ -652,7 +652,7 @@
         "amount": [
           {
             "amount": "5000",
-            "denom": "uluna"
+            "denom": "atom"
           }
         ],
         "gas": "200000"
@@ -664,10 +664,10 @@
           "value": {
             "amount": {
               "amount": "1000000",
-              "denom": "uluna"
+              "denom": "atom"
             },
-            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24t3vwtpl",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24thg5trl",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         }
       ],
@@ -680,13 +680,13 @@
       "1 | Account : 6571",
       "2 | Sequence : 1",
       "3 | Type : Delegate",
-      "4 | Amount : 1000000 uluna",
-      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24t",
-      "5 | Delegator [2/2] : 3vwtpl",
-      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "6 | Validator [2/2] : 9m5s03xfytvz7",
+      "4 | Amount : 1000000 atom",
+      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24th",
+      "5 | Delegator [2/2] : g5trl",
+      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "6 | Validator [2/2] : m5s03x2mfyu7",
       "7 | Memo : Zondax.ch",
-      "8 | Fee : 5000 uluna",
+      "8 | Fee : 5000 atom",
       "9 | Gas : 200000"
     ],
     "expert": false
@@ -714,8 +714,8 @@
               "amount": "1000000",
               "denom": "uluna"
             },
-            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24t3vwtpl",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24thg5trl",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         }
       ],
@@ -725,13 +725,13 @@
     "validationErr": "No error",
     "expected": [
       "0 | Type : Delegate",
-      "1 | Amount : 1.000000 ATOM",
-      "2 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24t",
-      "2 | Delegator [2/2] : 3vwtpl",
-      "3 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "3 | Validator [2/2] : 9m5s03xfytvz7",
+      "1 | Amount : 1.000000 LUNA",
+      "2 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24th",
+      "2 | Delegator [2/2] : g5trl",
+      "3 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "3 | Validator [2/2] : m5s03x2mfyu7",
       "4 | Memo : Zondax.ch",
-      "5 | Fee : 0.005000 ATOM",
+      "5 | Fee : 0.005000 LUNA",
       "6 | Gas : 200000"
     ],
     "expert": false
@@ -772,8 +772,8 @@
       "4 | msgs/initial_deposit/amount : 1",
       "5 | msgs/initial_deposit/denom : stake",
       "6 | msgs/proposal_type : Text",
-      "7 | msgs/proposer [1/2] : terra101234567890abcdefghijklmnopqrstu",
-      "7 | msgs/proposer [2/2] : vwxyz0",
+      "7 | msgs/proposer [1/2] : terra101234567890abcdefghijklmnopqrstuv",
+      "7 | msgs/proposer [2/2] : wxyz0",
       "8 | msgs/title : test",
       "9 | Memo : abc",
       "10 | Fee : Empty",
@@ -814,8 +814,8 @@
       "1 | msgs/initial_deposit/amount : 1",
       "2 | msgs/initial_deposit/denom : stake",
       "3 | msgs/proposal_type : Text",
-      "4 | msgs/proposer [1/2] : terra101234567890abcdefghijklmnopqrstu",
-      "4 | msgs/proposer [2/2] : vwxyz0",
+      "4 | msgs/proposer [1/2] : terra101234567890abcdefghijklmnopqrstuv",
+      "4 | msgs/proposer [2/2] : wxyz0",
       "5 | msgs/title : test",
       "6 | Memo : abc",
       "7 | Fee : Empty",
@@ -846,8 +846,8 @@
               "amount": "1000000",
               "denom": "uluna"
             },
-            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24t3vwtpl",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24thg5trl",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         }
       ],
@@ -861,10 +861,10 @@
       "2 | Sequence : 0",
       "3 | Type : Delegate",
       "4 | Amount : 1000000 uluna",
-      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24t",
-      "5 | Delegator [2/2] : 3vwtpl",
-      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "6 | Validator [2/2] : 9m5s03xfytvz7",
+      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24th",
+      "5 | Delegator [2/2] : g5trl",
+      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "6 | Validator [2/2] : m5s03x2mfyu7",
       "7 | Memo : Delegated with Ledger from union.market",
       "8 | Fee : 5000 uluna",
       "9 | Gas : 200000"
@@ -880,7 +880,7 @@
         "amount": [
           {
             "amount": "5000",
-            "denom": "uluna"
+            "denom": "ukrw"
           }
         ],
         "gas": "200000"
@@ -892,10 +892,10 @@
           "value": {
             "amount": {
               "amount": "1000000",
-              "denom": "uluna"
+              "denom": "usdr"
             },
-            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24t3vwtpl",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24thg5trl",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         }
       ],
@@ -905,13 +905,13 @@
     "validationErr": "No error",
     "expected": [
       "0 | Type : Delegate",
-      "1 | Amount : 1.000000 ATOM",
-      "2 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24t",
-      "2 | Delegator [2/2] : 3vwtpl",
-      "3 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "3 | Validator [2/2] : 9m5s03xfytvz7",
+      "1 | Amount : 1.000000 SDT",
+      "2 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24th",
+      "2 | Delegator [2/2] : g5trl",
+      "3 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "3 | Validator [2/2] : m5s03x2mfyu7",
       "4 | Memo : Delegated with Ledger from union.market",
-      "5 | Fee : 0.005000 ATOM",
+      "5 | Fee : 0.005000 KRT",
       "6 | Gas : 200000"
     ],
     "expert": false
@@ -953,8 +953,8 @@
               "amount": "1000000",
               "denom": "uluna"
             },
-            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24t3vwtpl",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra102hty0jv2s29lyc4u0tv97z9v298e24thg5trl",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         }
       ],
@@ -968,10 +968,10 @@
       "2 | Sequence : 0",
       "3 | Type : Delegate",
       "4 | Amount : 1000000 uluna",
-      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24t",
-      "5 | Delegator [2/2] : 3vwtpl",
-      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "6 | Validator [2/2] : 9m5s03xfytvz7",
+      "5 | Delegator [1/2] : terra102hty0jv2s29lyc4u0tv97z9v298e24th",
+      "5 | Delegator [2/2] : g5trl",
+      "6 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "6 | Validator [2/2] : m5s03x2mfyu7",
       "7 | Memo : Delegated with Ledger from union.market",
       "8 | Fee : 5000 uluna",
       "9 | Gas : 200000"
@@ -1034,15 +1034,15 @@
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhenny5tc06s"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0mahdv3p"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0m7g0y0p"
           }
         }
       ],
@@ -1055,14 +1055,14 @@
       "1 | Account : 108",
       "2 | Sequence : 106",
       "3 | Type : Withdraw Reward",
-      "4 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "4 | Delegator [2/2] : hgqhwh",
-      "5 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7",
-      "5 | Validator [2/2] : vjhennyh568ys",
-      "6 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "6 | Delegator [2/2] : hgqhwh",
-      "7 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxy",
-      "7 | Validator [2/2] : cyz7m0mahdv3p",
+      "4 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "4 | Delegator [2/2] : v6hvh",
+      "5 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7v",
+      "5 | Validator [2/2] : jhenny5tc06s",
+      "6 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "6 | Delegator [2/2] : v6hvh",
+      "7 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxyc",
+      "7 | Validator [2/2] : yz7m0m7g0y0p",
       "8 | Fee : 600 uluna",
       "9 | Gas : 200000"
     ],
@@ -1077,7 +1077,7 @@
         "amount": [
           {
             "amount": "600",
-            "denom": "uluna"
+            "denom": "uusd"
           }
         ],
         "gas": "200000"
@@ -1087,15 +1087,15 @@
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhenny5tc06s"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0mahdv3p"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0m7g0y0p"
           }
         }
       ],
@@ -1105,13 +1105,13 @@
     "validationErr": "No error",
     "expected": [
       "0 | Type : Withdraw Reward",
-      "1 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "1 | Delegator [2/2] : hgqhwh",
-      "2 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7",
-      "2 | Validator [2/2] : vjhennyh568ys",
-      "3 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxy",
-      "3 | Validator [2/2] : cyz7m0mahdv3p",
-      "4 | Fee : 0.000600 ATOM",
+      "1 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "1 | Delegator [2/2] : v6hvh",
+      "2 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7v",
+      "2 | Validator [2/2] : jhenny5tc06s",
+      "3 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxyc",
+      "3 | Validator [2/2] : yz7m0m7g0y0p",
+      "4 | Fee : 0.000600 UST",
       "5 | Gas : 200000"
     ],
     "expert": false
@@ -1135,29 +1135,29 @@
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhenny5tc06s"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0mahdv3p"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0m7g0y0p"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1ttfytaf43nkytzp8hkfjfgjc693ky4t3y2n2ku"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1ttfytaf43nkytzp8hkfjfgjc693ky4t3843zgu"
           }
         }
       ],
@@ -1170,22 +1170,22 @@
       "1 | Account : 108",
       "2 | Sequence : 106",
       "3 | Type : Withdraw Reward",
-      "4 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "4 | Delegator [2/2] : hgqhwh",
-      "5 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7",
-      "5 | Validator [2/2] : vjhennyh568ys",
-      "6 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "6 | Delegator [2/2] : hgqhwh",
-      "7 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxy",
-      "7 | Validator [2/2] : cyz7m0mahdv3p",
-      "8 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "8 | Delegator [2/2] : hgqhwh",
-      "9 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "9 | Validator [2/2] : 9m5s03xfytvz7",
-      "10 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "10 | Delegator [2/2] : hgqhwh",
-      "11 | Validator [1/2] : terravaloper1ttfytaf43nkytzp8hkfjfgjc6",
-      "11 | Validator [2/2] : 93ky4t3y2n2ku",
+      "4 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "4 | Delegator [2/2] : v6hvh",
+      "5 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7v",
+      "5 | Validator [2/2] : jhenny5tc06s",
+      "6 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "6 | Delegator [2/2] : v6hvh",
+      "7 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxyc",
+      "7 | Validator [2/2] : yz7m0m7g0y0p",
+      "8 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "8 | Delegator [2/2] : v6hvh",
+      "9 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "9 | Validator [2/2] : m5s03x2mfyu7",
+      "10 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "10 | Delegator [2/2] : v6hvh",
+      "11 | Validator [1/2] : terravaloper1ttfytaf43nkytzp8hkfjfgjc69",
+      "11 | Validator [2/2] : 3ky4t3843zgu",
       "12 | Fee : 600 uluna",
       "13 | Gas : 200000"
     ],
@@ -1245,22 +1245,22 @@
       "1 | Account : 108",
       "2 | Sequence : 106",
       "3 | Type : Withdraw Reward",
-      "4 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl8",
-      "4 | Delegator [2/2] : 7jycah",
-      "5 | Validator [1/2] : terravaloper1kn3wugetjuy4zetlq6wadchfh",
-      "5 | Validator [2/2] : vu3x740ae6z6x",
-      "6 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl8",
-      "6 | Delegator [2/2] : 7jycah",
-      "7 | Validator [1/2] : terravaloper1sjllsnramtg3ewxqwwrwjxfgc",
-      "7 | Validator [2/2] : 4n4ef9u2lcnj0",
-      "8 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl8",
-      "8 | Delegator [2/2] : 7jycah",
-      "9 | Validator [1/2] : terravaloper1ey69r37gfxvxg62sh4r0ktpuc",
-      "9 | Validator [2/2] : 46pzjrm873ae8",
-      "10 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl8",
-      "10 | Delegator [2/2] : 7jycah",
-      "11 | Validator [1/2] : terravaloper1648ynlpdw7fqa2axt0w2yp3fk",
-      "11 | Validator [2/2] : 542junl7rsvq6",
+      "4 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl87",
+      "4 | Delegator [2/2] : jycah",
+      "5 | Validator [1/2] : terravaloper1kn3wugetjuy4zetlq6wadchfhv",
+      "5 | Validator [2/2] : u3x740ae6z6x",
+      "6 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl87",
+      "6 | Delegator [2/2] : jycah",
+      "7 | Validator [1/2] : terravaloper1sjllsnramtg3ewxqwwrwjxfgc4",
+      "7 | Validator [2/2] : n4ef9u2lcnj0",
+      "8 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl87",
+      "8 | Delegator [2/2] : jycah",
+      "9 | Validator [1/2] : terravaloper1ey69r37gfxvxg62sh4r0ktpuc4",
+      "9 | Validator [2/2] : 6pzjrm873ae8",
+      "10 | Delegator [1/2] : terra1kky4yzth6gdrm8ga5zlfwhav33yr7hl87",
+      "10 | Delegator [2/2] : jycah",
+      "11 | Validator [1/2] : terravaloper1648ynlpdw7fqa2axt0w2yp3fk5",
+      "11 | Validator [2/2] : 42junl7rsvq6",
       "12 | Fee : 600 uluna",
       "13 | Gas : 200000"
     ],
@@ -1285,112 +1285,112 @@
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1qwl879nx9t6kef4supyazayf7vjhenny5tc06s"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0mahdv3p"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1x88j7vp2xnw3zec8ur3g4waxycyz7m0m7g0y0p"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03xfytvz7"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x2mfyu7"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1ttfytaf43nkytzp8hkfjfgjc693ky4t3y2n2ku"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1ttfytaf43nkytzp8hkfjfgjc693ky4t3843zgu"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper1wdrypwex63geqswmcy5qynv4w3z3dyef2qmyna"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper1wdrypwex63geqswmcy5qynv4w3z3dyefflevda"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper102ruvpv2srmunfffxavttxnhezln6fnc54at8c"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper102ruvpv2srmunfffxavttxnhezln6fnch2lrec"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
-            "validator_address": "terravaloper10e4vsut6suau8tk9m6dnrm0slgd6npe3jx5xpv"
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
+            "validator_address": "terravaloper10e4vsut6suau8tk9m6dnrm0slgd6npe33ekwlv"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper1sxx9mszve0gaedz5ld7qdkjkfv8z992ax69k08"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper1ssm0d433seakyak8kcf93yefhknjleeds4y3em"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper13sduv92y3xdhy3rpmhakrc3v7t37e7ps9l0kpv"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper15urq2dtp9qce4fyc85m6upwm9xul3049e02707"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper14kn0kk33szpwus9nh8n87fjel8djx0y070ymmj"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper14lultfckehtszvzw4ehu0apvsr77afvyju5zzy"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper1k9a0cs97vul8w2vwknlfmpez6prv8klv03lv3d"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper1kj0h4kn4z5xvedu2nd9c4a9a559wvpuvu0h6qn"
           }
         },
         {
           "type": "distribution/MsgWithdrawDelegationReward",
           "value": {
-            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvyhgqhwh",
+            "delegator_address": "terra14lultfckehtszvzw4ehu0apvsr77afvy3v6hvh",
             "validator_address": "terravaloper1hjct6q7npsspsg3dgvzk3sdf89spmlpfdn6m9d"
           }
         }
@@ -1404,70 +1404,70 @@
       "1 | Account : 108",
       "2 | Sequence : 106",
       "3 | Type : Withdraw Reward",
-      "4 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "4 | Delegator [2/2] : hgqhwh",
-      "5 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7",
-      "5 | Validator [2/2] : vjhennyh568ys",
-      "6 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "6 | Delegator [2/2] : hgqhwh",
-      "7 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxy",
-      "7 | Validator [2/2] : cyz7m0mahdv3p",
-      "8 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "8 | Delegator [2/2] : hgqhwh",
-      "9 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt",
-      "9 | Validator [2/2] : 9m5s03xfytvz7",
-      "10 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "10 | Delegator [2/2] : hgqhwh",
-      "11 | Validator [1/2] : terravaloper1ttfytaf43nkytzp8hkfjfgjc6",
-      "11 | Validator [2/2] : 93ky4t3y2n2ku",
-      "12 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "12 | Delegator [2/2] : hgqhwh",
-      "13 | Validator [1/2] : terravaloper1wdrypwex63geqswmcy5qynv4w",
-      "13 | Validator [2/2] : 3z3dyef2qmyna",
-      "14 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "14 | Delegator [2/2] : hgqhwh",
-      "15 | Validator [1/2] : terravaloper102ruvpv2srmunfffxavttxnhe",
-      "15 | Validator [2/2] : zln6fnc54at8c",
-      "16 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "16 | Delegator [2/2] : hgqhwh",
-      "17 | Validator [1/2] : terravaloper10e4vsut6suau8tk9m6dnrm0sl",
-      "17 | Validator [2/2] : gd6npe3jx5xpv",
-      "18 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "18 | Delegator [2/2] : hgqhwh",
-      "19 | Validator [1/2] : terravaloper1sxx9mszve0gaedz5ld7qdkjkf",
-      "19 | Validator [2/2] : v8z992ax69k08",
-      "20 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "20 | Delegator [2/2] : hgqhwh",
-      "21 | Validator [1/2] : terravaloper1ssm0d433seakyak8kcf93yefh",
-      "21 | Validator [2/2] : knjleeds4y3em",
-      "22 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "22 | Delegator [2/2] : hgqhwh",
-      "23 | Validator [1/2] : terravaloper13sduv92y3xdhy3rpmhakrc3v7",
-      "23 | Validator [2/2] : t37e7ps9l0kpv",
-      "24 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "24 | Delegator [2/2] : hgqhwh",
-      "25 | Validator [1/2] : terravaloper15urq2dtp9qce4fyc85m6upwm9",
-      "25 | Validator [2/2] : xul3049e02707",
-      "26 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "26 | Delegator [2/2] : hgqhwh",
-      "27 | Validator [1/2] : terravaloper14kn0kk33szpwus9nh8n87fjel",
-      "27 | Validator [2/2] : 8djx0y070ymmj",
-      "28 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "28 | Delegator [2/2] : hgqhwh",
-      "29 | Validator [1/2] : terravaloper14lultfckehtszvzw4ehu0apvs",
-      "29 | Validator [2/2] : r77afvyju5zzy",
-      "30 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "30 | Delegator [2/2] : hgqhwh",
-      "31 | Validator [1/2] : terravaloper1k9a0cs97vul8w2vwknlfmpez6",
-      "31 | Validator [2/2] : prv8klv03lv3d",
-      "32 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "32 | Delegator [2/2] : hgqhwh",
-      "33 | Validator [1/2] : terravaloper1kj0h4kn4z5xvedu2nd9c4a9a5",
-      "33 | Validator [2/2] : 59wvpuvu0h6qn",
-      "34 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy",
-      "34 | Delegator [2/2] : hgqhwh",
-      "35 | Validator [1/2] : terravaloper1hjct6q7npsspsg3dgvzk3sdf8",
-      "35 | Validator [2/2] : 9spmlpfdn6m9d",
+      "4 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "4 | Delegator [2/2] : v6hvh",
+      "5 | Validator [1/2] : terravaloper1qwl879nx9t6kef4supyazayf7v",
+      "5 | Validator [2/2] : jhenny5tc06s",
+      "6 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "6 | Delegator [2/2] : v6hvh",
+      "7 | Validator [1/2] : terravaloper1x88j7vp2xnw3zec8ur3g4waxyc",
+      "7 | Validator [2/2] : yz7m0m7g0y0p",
+      "8 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "8 | Delegator [2/2] : v6hvh",
+      "9 | Validator [1/2] : terravaloper1grgelyng2v6v3t8z87wu3sxgt9",
+      "9 | Validator [2/2] : m5s03x2mfyu7",
+      "10 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "10 | Delegator [2/2] : v6hvh",
+      "11 | Validator [1/2] : terravaloper1ttfytaf43nkytzp8hkfjfgjc69",
+      "11 | Validator [2/2] : 3ky4t3843zgu",
+      "12 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "12 | Delegator [2/2] : v6hvh",
+      "13 | Validator [1/2] : terravaloper1wdrypwex63geqswmcy5qynv4w3",
+      "13 | Validator [2/2] : z3dyefflevda",
+      "14 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "14 | Delegator [2/2] : v6hvh",
+      "15 | Validator [1/2] : terravaloper102ruvpv2srmunfffxavttxnhez",
+      "15 | Validator [2/2] : ln6fnch2lrec",
+      "16 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "16 | Delegator [2/2] : v6hvh",
+      "17 | Validator [1/2] : terravaloper10e4vsut6suau8tk9m6dnrm0slg",
+      "17 | Validator [2/2] : d6npe33ekwlv",
+      "18 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "18 | Delegator [2/2] : v6hvh",
+      "19 | Validator [1/2] : terravaloper1sxx9mszve0gaedz5ld7qdkjkfv",
+      "19 | Validator [2/2] : 8z992ax69k08",
+      "20 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "20 | Delegator [2/2] : v6hvh",
+      "21 | Validator [1/2] : terravaloper1ssm0d433seakyak8kcf93yefhk",
+      "21 | Validator [2/2] : njleeds4y3em",
+      "22 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "22 | Delegator [2/2] : v6hvh",
+      "23 | Validator [1/2] : terravaloper13sduv92y3xdhy3rpmhakrc3v7t",
+      "23 | Validator [2/2] : 37e7ps9l0kpv",
+      "24 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "24 | Delegator [2/2] : v6hvh",
+      "25 | Validator [1/2] : terravaloper15urq2dtp9qce4fyc85m6upwm9x",
+      "25 | Validator [2/2] : ul3049e02707",
+      "26 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "26 | Delegator [2/2] : v6hvh",
+      "27 | Validator [1/2] : terravaloper14kn0kk33szpwus9nh8n87fjel8",
+      "27 | Validator [2/2] : djx0y070ymmj",
+      "28 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "28 | Delegator [2/2] : v6hvh",
+      "29 | Validator [1/2] : terravaloper14lultfckehtszvzw4ehu0apvsr",
+      "29 | Validator [2/2] : 77afvyju5zzy",
+      "30 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "30 | Delegator [2/2] : v6hvh",
+      "31 | Validator [1/2] : terravaloper1k9a0cs97vul8w2vwknlfmpez6p",
+      "31 | Validator [2/2] : rv8klv03lv3d",
+      "32 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "32 | Delegator [2/2] : v6hvh",
+      "33 | Validator [1/2] : terravaloper1kj0h4kn4z5xvedu2nd9c4a9a55",
+      "33 | Validator [2/2] : 9wvpuvu0h6qn",
+      "34 | Delegator [1/2] : terra14lultfckehtszvzw4ehu0apvsr77afvy3",
+      "34 | Delegator [2/2] : v6hvh",
+      "35 | Validator [1/2] : terravaloper1hjct6q7npsspsg3dgvzk3sdf89",
+      "35 | Validator [2/2] : spmlpfdn6m9d",
       "36 | Fee : 600 uluna",
       "37 | Gas : 200000"
     ],
@@ -1482,7 +1482,7 @@
         "amount": [
           {
             "amount": "600",
-            "denom": "uluna"
+            "denom": "umnt"
           }
         ],
         "gas": "200000"
@@ -1514,15 +1514,15 @@
     "validationErr": "No error",
     "expected": [
       "0 | Type : Withdraw Reward",
-      "1 | Delegator [1/2] : terra19umvgcvk8cxsvzemy239nj9ngc2ltuka",
-      "1 | Delegator [2/2] : ntgyp3",
-      "2 | Validator [1/2] : terravaloper1648ynlpdw7fqa2axt0w2yp3fk",
-      "2 | Validator [2/2] : 542junl7rsvq6",
+      "1 | Delegator [1/2] : terra19umvgcvk8cxsvzemy239nj9ngc2ltukan",
+      "1 | Delegator [2/2] : tgyp3",
+      "2 | Validator [1/2] : terravaloper1648ynlpdw7fqa2axt0w2yp3fk5",
+      "2 | Validator [2/2] : 42junl7rsvq6",
       "3 | Type : Delegate",
-      "4 | Amount : 20.139397 ATOM",
-      "5 | Validator [1/2] : terravaloper1648ynlpdw7fqa2axt0w2yp3fk",
-      "5 | Validator [2/2] : 542junl7rsvq6",
-      "6 | Fee : 0.000600 ATOM",
+      "4 | Amount : 20.139397 LUNA",
+      "5 | Validator [1/2] : terravaloper1648ynlpdw7fqa2axt0w2yp3fk5",
+      "5 | Validator [2/2] : 42junl7rsvq6",
+      "6 | Fee : 0.000600 MNT",
       "7 | Gas : 200000"
     ],
     "expert": false

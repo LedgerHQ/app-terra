@@ -51,9 +51,20 @@ typedef enum {
 #define COIN_DEFAULT_CHAINID                "columbus-3"
 
 // In non-expert mode, the app will convert from uluna to LUNA
-#define COIN_DEFAULT_DENOM_BASE             "uluna"
-#define COIN_DEFAULT_DENOM_REPR             "LUNA"
+#define COIN_DEFAULT_DENOM_LUNA             "uluna"
+#define COIN_DEFAULT_DENOM_KRT              "ukrw"
+#define COIN_DEFAULT_DENOM_SDT              "usdr"
+#define COIN_DEFAULT_DENOM_UST              "uusd"
+#define COIN_DEFAULT_DENOM_MNT              "umnt"
+
+#define COIN_DEFAULT_DENOM_LUNA_REPR        "LUNA"
+#define COIN_DEFAULT_DENOM_KRT_REPR         "KRT"
+#define COIN_DEFAULT_DENOM_SDT_REPR         "SDT"
+#define COIN_DEFAULT_DENOM_UST_REPR         "UST"
+#define COIN_DEFAULT_DENOM_MNT_REPR         "MNT"
+
 #define COIN_DEFAULT_DENOM_FACTOR           6
+
 
 #ifdef __cplusplus
 }

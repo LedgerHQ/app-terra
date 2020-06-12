@@ -45,6 +45,7 @@ parser_error_t parser_validate(const parser_context_t *ctx) {
         CHECK_PARSER_ERR(parser_getItem(ctx, idx, tmpKey, sizeof(tmpKey), tmpVal, sizeof(tmpVal), 0, &pageCount))
     }
 
+
     return parser_ok;
 }
 
@@ -90,22 +91,43 @@ __Z_INLINE bool_t parser_isAmount(char *key) {
     if (strcmp(key, "msgs/value/amount") == 0)
         return bool_true;
 
-    return bool_false;
-}
-
-__Z_INLINE bool_t is_default_denom_base(const char *denom, uint8_t denom_len) {
-    if (tx_is_expert_mode()){
-        return false;
-    }
-
-    if (strlen(COIN_DEFAULT_DENOM_BASE) != denom_len) {
-        return bool_false;
-    }
-
-    if (memcmp(denom, COIN_DEFAULT_DENOM_BASE, denom_len) == 0)
+    if (strcmp(key, "msgs/value/offer_coin") == 0)
         return bool_true;
 
     return bool_false;
+}
+
+__Z_INLINE const char* get_default_denom_index(const char *denom, uint8_t denomLen) {
+    if (tx_is_expert_mode()){
+        return NULL;
+    }
+
+    if ((strlen(COIN_DEFAULT_DENOM_LUNA) == denomLen) && 
+        (memcmp(denom, COIN_DEFAULT_DENOM_LUNA, denomLen) == 0)) {
+        return COIN_DEFAULT_DENOM_LUNA_REPR;
+    }
+
+    if ((strlen(COIN_DEFAULT_DENOM_KRT) == denomLen) && 
+        (memcmp(denom, COIN_DEFAULT_DENOM_KRT, denomLen) == 0)) {
+        return COIN_DEFAULT_DENOM_KRT_REPR;
+    }
+
+    if ((strlen(COIN_DEFAULT_DENOM_SDT) == denomLen) && 
+        (memcmp(denom, COIN_DEFAULT_DENOM_SDT, denomLen) == 0)) {
+        return COIN_DEFAULT_DENOM_SDT_REPR;
+    }
+
+    if ((strlen(COIN_DEFAULT_DENOM_UST) == denomLen) && 
+        (memcmp(denom, COIN_DEFAULT_DENOM_UST, denomLen) == 0)) {
+        return COIN_DEFAULT_DENOM_UST_REPR;
+    }
+
+    if ((strlen(COIN_DEFAULT_DENOM_MNT) == denomLen) && 
+        (memcmp(denom, COIN_DEFAULT_DENOM_MNT, denomLen) == 0)) {
+        return COIN_DEFAULT_DENOM_MNT_REPR;
+    }
+   
+    return NULL;
 }
 
 __Z_INLINE parser_error_t parser_formatAmount(uint16_t amountToken,
@@ -165,36 +187,28 @@ __Z_INLINE parser_error_t parser_formatAmount(uint16_t amountToken,
         return parser_unexpected_buffer_end;
     }
 
-    // Then we convert denomination
-    char tmp[50];
-    if (amountLen < 0 || ((uint16_t) amountLen) >= sizeof(tmp)) {
-        return parser_unexpected_error;
-    }
-    MEMZERO(tmp, sizeof(tmp));
-    MEMCPY(tmp, amountPtr, amountLen);
 
-    if (fpstr_to_str(bufferUI, sizeof(tmp), tmp, COIN_DEFAULT_DENOM_FACTOR)!=0) {
-        return parser_unexpected_error;
-    }
+    const char *denomRepr = get_default_denom_index(denomPtr, denomLen);
+    if (denomRepr != NULL) {
+        // Then we convert denomination
+        char tmp[50];
+        if (amountLen < 0 || ((uint16_t) amountLen) >= sizeof(tmp)) {
+            return parser_unexpected_error;
+        }
+        MEMZERO(tmp, sizeof(tmp));
+        MEMCPY(tmp, amountPtr, amountLen);
 
-    const uint16_t formatted_len =strlen(bufferUI);
-    bufferUI[formatted_len] = ' ';
-
-    if (is_default_denom_base(denomPtr, denomLen)) {
-        MEMCPY(bufferUI + 1 + formatted_len, COIN_DEFAULT_DENOM_REPR, strlen(COIN_DEFAULT_DENOM_REPR));
-    } else {
-        // Normalize denom
-        char denom[10];
-        MEMZERO(denom, sizeof(denom));
-        MEMCPY(denom, denomPtr, denomLen);
-        for (int i = 0; i < denomLen-2; i++) {
-            denom[i] = denom[i+1] - 32;
+        if (fpstr_to_str(bufferUI, sizeof(tmp), tmp, COIN_DEFAULT_DENOM_FACTOR)!=0) {
+            return parser_unexpected_error;
         }
 
-        denom[denomLen-2] = 'T';
-        denom[denomLen-1] = '\0';
-
-        MEMCPY(bufferUI + 1 + formatted_len, denom, strlen(denom));
+        const uint16_t formatted_len =strlen(bufferUI);
+        bufferUI[formatted_len] = ' ';
+        MEMCPY(bufferUI + 1 + formatted_len, denomRepr, strlen(denomRepr));
+    } else {
+        MEMCPY(bufferUI, amountPtr, amountLen);
+        bufferUI[amountLen] = ' ';
+        MEMCPY(bufferUI + 1 + amountLen, denomPtr, denomLen);
     }
 
     pageString(outVal, outValLen, bufferUI, pageIdx, pageCount);

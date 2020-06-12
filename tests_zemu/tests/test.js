@@ -1,6 +1,6 @@
 import {expect, test} from "jest";
 import Zemu from "@zondax/zemu";
-import CosmosApp from "ledger-cosmos-js";
+import TerraApp from "@terra-money/ledger-terra-js";
 import secp256k1 from "secp256k1/elliptic";
 import crypto from "crypto";
 
@@ -11,8 +11,8 @@ const APP_SEED = "equip will roof matter pink blind book anxiety banner elbow su
 const sim_options = {
     logging: true,
     start_delay: 3000,
-    custom: `-s "${APP_SEED}"`
-    , X11: true
+    custom: `-s "${APP_SEED}"`,
+    X11: true
 };
 
 jest.setTimeout(30000)
@@ -131,9 +131,8 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
             const resp = await app.getVersion();
-
             console.log(resp);
 
             expect(resp.return_code).toEqual(0x9000);
@@ -151,7 +150,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
             const info = await app.appInfo();
 
             console.log(info)
@@ -164,7 +163,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
             const resp = await app.deviceInfo();
 
             console.log(resp);
@@ -185,7 +184,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
             // Derivation path. First 3 items are automatically hardened!
             const path = [44, 330, 5, 0, 3];
             const resp = await app.getAddressAndPubKey(path, "terra");
@@ -221,7 +220,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
             // Derivation path. First 3 items are automatically hardened!
             const path = [44, 330, 5, 0, 3];
@@ -264,7 +263,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
             // Derivation path. First 3 items are automatically hardened!
             const path = [44, 330, 2147483647, 0, 4294967295];
@@ -309,7 +308,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
             const path = [44, 330, 0, 0, 0];
             let tx = JSON.stringify(example_tx_str_basic);
@@ -322,15 +321,16 @@ describe('Basic checks', function () {
 
             // do not wait here..
             const signatureRequest = app.sign(path, tx);
-
             await Zemu.sleep(2000);
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 10; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
+            await Zemu.sleep(500);
             await sim.clickBoth();
+            // await sim.clickBoth();
 
             let resp = await signatureRequest;
             console.log(resp);
@@ -365,7 +365,7 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
             const path = [44, 330, 0, 0, 0];
             let tx = JSON.stringify(example_tx_str_combined);
@@ -383,9 +383,10 @@ describe('Basic checks', function () {
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 17; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
+            await Zemu.sleep(500);
             await sim.clickBoth();
 
             let resp = await signatureRequest;
@@ -421,9 +422,9 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
-            const path = [44, 118, 0, 0, 0];
+            const path = [44, 330, 0, 0, 0];
             let tx = JSON.stringify(example_tx_str_basic);
 
             // get address / publickey
@@ -454,9 +455,10 @@ describe('Basic checks', function () {
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 10; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
+            await Zemu.sleep(500);
             await sim.clickBoth();
 
             let resp = await signatureRequest;
@@ -492,13 +494,13 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
-            const path = [44, 118, 0, 0, 0];
+            const path = [44, 330, 0, 0, 0];
             let tx = JSON.stringify(example_tx_str_expert);
 
             // get address / publickey
-            const respPk = await app.getAddressAndPubKey(path, "cosmos");
+            const respPk = await app.getAddressAndPubKey(path, "terra");
             expect(respPk.return_code).toEqual(0x9000);
             expect(respPk.error_message).toEqual("No errors");
             console.log(respPk)
@@ -513,6 +515,7 @@ describe('Basic checks', function () {
             for (let i = 0; i < 15; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
+            await Zemu.sleep(500);
             await sim.clickBoth();
 
             let resp = await signatureRequest;

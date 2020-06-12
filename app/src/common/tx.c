@@ -79,6 +79,7 @@ const char *tx_parse() {
         tx_get_buffer(),
         tx_get_buffer_length());
 
+
     if (err != parser_ok) {
         return parser_getErrorDescription(err);
     }
@@ -86,6 +87,7 @@ const char *tx_parse() {
     err = parser_validate(&ctx_parsed_tx);
     CHECK_APP_CANARY()
 
+        
     if (err != parser_ok) {
         return parser_getErrorDescription(err);
     }
