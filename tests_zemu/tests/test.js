@@ -51,7 +51,7 @@ const example_tx_str_basic = {
 
 const example_tx_str_expert = {
     "account_number": "108",
-    "chain_id": "cosmoshub-2",
+    "chain_id": "columbus-3",
     "fee": {
         "amount": [
             {
@@ -83,7 +83,7 @@ const example_tx_str_expert = {
 
 const example_tx_str_combined = {
     "account_number": "108",
-    "chain_id": "cosmoshub-3",
+    "chain_id": "columbus-3",
     "fee": {
         "amount": [
             {
@@ -99,7 +99,7 @@ const example_tx_str_combined = {
             "type": "distribution/MsgWithdrawDelegationReward",
             "value": {
                 "delegator_address": "terra1w34k53py5v5xyluazqpq65agyajavep29d9qch",
-                "validator_address": "cosmosvaloper1648ynlpdw7fqa2axt0w2yp3fk542junl7rsvq6"
+                "validator_address": "terravaloper1648ynlpdw7fqa2axt0w2yp3fk542junlaujy76"
             }
         },
         {
@@ -110,7 +110,7 @@ const example_tx_str_combined = {
                     "denom": "uluna"
                 },
                 "delegator_address": "terra1w34k53py5v5xyluazqpq65agyajavep29d9qch",
-                "validator_address": "cosmosvaloper1648ynlpdw7fqa2axt0w2yp3fk542junl7rsvq6",
+                "validator_address": "terravaloper1648ynlpdw7fqa2axt0w2yp3fk542junlaujy76",
             }
         }
     ],
@@ -258,11 +258,11 @@ describe('Basic checks', function () {
         const sim = new Zemu(APP_PATH);
         try {
             await sim.start(sim_options);
-            const app = new CosmosApp(sim.getTransport());
+            const app = new TerraApp(sim.getTransport());
 
             // Derivation path. First 3 items are automatically hardened!
-            const path = [44, 118, 2147483647, 0, 4294967295];
-            const resp = await app.showAddressAndPubKey(path, "cosmos");
+            const path = [44, 330, 2147483647, 0, 4294967295];
+            const resp = await app.showAddressAndPubKey(path, "terra");
             console.log(resp);
 
             expect(resp.return_code).toEqual(0x6985);
@@ -346,7 +346,7 @@ describe('Basic checks', function () {
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < 9; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
@@ -403,7 +403,7 @@ describe('Basic checks', function () {
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 9; i++) {
+            for (let i = 0; i < 11; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
@@ -474,7 +474,7 @@ describe('Basic checks', function () {
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < 9; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
@@ -522,7 +522,11 @@ describe('Basic checks', function () {
             const respPk = await app.getAddressAndPubKey(path, "terra");
             expect(respPk.return_code).toEqual(0x9000);
             expect(respPk.error_message).toEqual("No errors");
-            console.log(respPk)
+            console.log(respPk);
+
+            // enable export mode
+            await sim.clickRight();
+            await sim.clickBoth();
 
             // do not wait here..
             const signatureRequest = app.sign(path, tx);
