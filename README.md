@@ -263,7 +263,7 @@ The Makefile will build the firmware in a docker container and leave the binary 
    ```
 
 - Upload to a device
-   The following command willㅅ upload the application to the ledger. _Warning: The application will be deleted before uploading._
+   The following command will upload the application to the ledger. _Warning: The application will be deleted before uploading._
    ```
    make load          # Builds and loads the app to the device
    ```

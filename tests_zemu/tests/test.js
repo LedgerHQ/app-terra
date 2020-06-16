@@ -10,8 +10,8 @@ const APP_PATH = Resolve("../app/bin/app.elf");
 const APP_SEED = "equip will roof matter pink blind book anxiety banner elbow sun young"
 const sim_options = {
     logging: true,
-    start_delay: 3000,
-    custom: `-s "${APP_SEED}"`,
+    start_delay: 4000,
+    custom: `-s "${APP_SEED}"`, 
     X11: true
 };
 
@@ -159,26 +159,26 @@ describe('Basic checks', function () {
         }
     });
 
-    it('get device info', async function () {
-        const sim = new Zemu(APP_PATH);
-        try {
-            await sim.start(sim_options);
-            const app = new TerraApp(sim.getTransport());
-            const resp = await app.deviceInfo();
+    // it('get device info', async function () {
+    //     const sim = new Zemu(APP_PATH);
+    //     try {
+    //         await sim.start(sim_options);
+    //         const app = new TerraApp(sim.getTransport());
+    //         const resp = await app.deviceInfo();
 
-            console.log(resp);
+    //         console.log(resp);
 
-            expect(resp.return_code).toEqual(0x9000);
-            expect(resp.error_message).toEqual("No errors");
+    //         expect(resp.return_code).toEqual(0x9000);
+    //         expect(resp.error_message).toEqual("No errors");
 
-            expect(resp).toHaveProperty("targetId");
-            expect(resp).toHaveProperty("seVersion");
-            expect(resp).toHaveProperty("flag");
-            expect(resp).toHaveProperty("mcuVersion");
-        } finally {
-            await sim.close();
-        }
-    });
+    //         expect(resp).toHaveProperty("targetId");
+    //         expect(resp).toHaveProperty("seVersion");
+    //         expect(resp).toHaveProperty("flag");
+    //         expect(resp).toHaveProperty("mcuVersion");
+    //     } finally {
+    //         await sim.close();
+    //     }
+    // });
 
     it('get address', async function () {
         const sim = new Zemu(APP_PATH);
@@ -234,7 +234,6 @@ describe('Basic checks', function () {
             await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
             await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
             await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
             await sim.clickBoth(`${snapshotPrefixTmp}${snapshotCount++}.png`);
 
             const resp = await respRequest;
@@ -256,6 +255,24 @@ describe('Basic checks', function () {
     });
 
     it('show address - HUGE', async function () {
+        const sim = new Zemu(APP_PATH);
+        try {
+            await sim.start(sim_options);
+            const app = new CosmosApp(sim.getTransport());
+
+            // Derivation path. First 3 items are automatically hardened!
+            const path = [44, 118, 2147483647, 0, 4294967295];
+            const resp = await app.showAddressAndPubKey(path, "cosmos");
+            console.log(resp);
+
+            expect(resp.return_code).toEqual(0x6985);
+            expect(resp.error_message).toEqual("Conditions not satisfied");
+        } finally {
+            await sim.close();
+        }
+    });
+
+    it('show address - HUGE - expert', async function () {
         const snapshotPrefixGolden = "snapshots/show-address-huge/";
         const snapshotPrefixTmp = "snapshots-tmp/show-address-huge/";
         let snapshotCount = 0;
@@ -264,6 +281,10 @@ describe('Basic checks', function () {
         try {
             await sim.start(sim_options);
             const app = new TerraApp(sim.getTransport());
+
+            // Activate expert mode
+            await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
+            await sim.clickBoth(`${snapshotPrefixTmp}${snapshotCount++}.png`);
 
             // Derivation path. First 3 items are automatically hardened!
             const path = [44, 330, 2147483647, 0, 4294967295];
@@ -325,12 +346,11 @@ describe('Basic checks', function () {
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 7; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
             await sim.clickBoth();
-            // await sim.clickBoth();
 
             let resp = await signatureRequest;
             console.log(resp);
@@ -379,11 +399,11 @@ describe('Basic checks', function () {
             // do not wait here..
             const signatureRequest = app.sign(path, tx);
 
-            await Zemu.sleep(2000);
+            await Zemu.sleep(3000);
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 17; i++) {
+            for (let i = 0; i < 9; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
@@ -431,11 +451,10 @@ describe('Basic checks', function () {
             const respRequest = app.showAddressAndPubKey(path, "terra");
 
             // We need to wait until the app responds to the APDU
-            await Zemu.sleep(2000);
+            await Zemu.sleep(3000);
 
             // Now navigate the address / path
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
             await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
             await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
             await sim.clickRight(`${snapshotPrefixTmp}${snapshotCount++}.png`);
@@ -451,11 +470,11 @@ describe('Basic checks', function () {
             // do not wait here..
             const signatureRequest = app.sign(path, tx);
 
-            await Zemu.sleep(2000);
+            await Zemu.sleep(3000);
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 7; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
@@ -508,14 +527,16 @@ describe('Basic checks', function () {
             // do not wait here..
             const signatureRequest = app.sign(path, tx);
 
-            await Zemu.sleep(2000);
+            await Zemu.sleep(3000);
 
             // Reference window
             await sim.snapshot(`${snapshotPrefixTmp}${snapshotCount++}.png`);
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 14; i++) {
                 await sim.clickRight(Resolve(`${snapshotPrefixTmp}${snapshotCount++}.png`));
             }
             await Zemu.sleep(500);
+            await sim.clickBoth();
+            await sim.clickBoth();
             await sim.clickBoth();
 
             let resp = await signatureRequest;
