@@ -60,7 +60,7 @@ define run_docker
 	-u $(USERID) \
 	-v $(shell pwd):/project \
 	$(DOCKER_IMAGE) \
-	"$(2)"
+	"COIN=$(COIN) $(2)"
 endef
 
 all: build
@@ -87,17 +87,21 @@ build: build_rust
 	$(info Replacing app icon)
 	@cp $(LEDGER_SRC)/nanos_icon.gif $(LEDGER_SRC)/glyphs/icon_app.gif
 	$(info calling make inside docker)
-	$(call run_docker,$(DOCKER_BOLOS_SDK),make -C $(DOCKER_APP_SRC))
+	$(call run_docker,$(DOCKER_BOLOS_SDK),make -j `nproc` -C $(DOCKER_APP_SRC))
 
 .PHONY: buildX
 buildX: build_rust
 	@cp $(LEDGER_SRC)/nanos_icon.gif $(LEDGER_SRC)/glyphs/icon_app.gif
 	@convert $(LEDGER_SRC)/nanos_icon.gif -crop 14x14+1+1 +repage -negate $(LEDGER_SRC)/nanox_icon.gif
-	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -C $(DOCKER_APP_SRC))
+	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -j `nproc` -C $(DOCKER_APP_SRC))
 
 .PHONY: clean
 clean:
 	$(call run_docker,$(DOCKER_BOLOS_SDK),make -C $(DOCKER_APP_SRC) clean)
+
+.PHONY: listvariants
+listvariants:
+	$(call run_docker,$(DOCKER_BOLOS_SDK),make -C $(DOCKER_APP_SRC) listvariants)
 
 .PHONY: shell
 shell:
@@ -135,6 +139,11 @@ dev_init_secondary: check_python show_info_recovery_mode
 .PHONY: dev_ca
 dev_ca: check_python
 	@python -m ledgerblue.setupCustomCA --targetId 0x31100004 --public $(SCP_PUBKEY) --name zondax
+
+# This target will setup a custom developer certificate
+.PHONY: dev_caX
+dev_caX: check_python
+	@python -m ledgerblue.setupCustomCA --targetId 0x33000004 --public $(SCP_PUBKEY) --name zondax
 
 .PHONY: dev_ca_delete
 dev_ca_delete: check_python
@@ -174,6 +183,10 @@ zemu_install: zemu_install_js_link
 .PHONY: zemu
 zemu:
 	cd $(TESTS_ZEMU_DIR)/tools && node debug.mjs
+
+.PHONY: zemu_val
+zemu_val:
+	cd $(TESTS_ZEMU_DIR)/tools && node debug_val.mjs
 
 .PHONY: zemu_debug
 zemu_debug:
