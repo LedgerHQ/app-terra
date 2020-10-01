@@ -11,23 +11,14 @@ This project contains the Terra app for Ledger Nano S and X.
 - C++ unit tests
 - Zemu tests
 
-The Terra app will be available soon in [Ledger Live](https://www.ledger.com/pages/ledger-live). Our preferred and recommended hardware wallet!
-
-If you are not a developer, please follow the below steps to install Cosmos ledger app on ledger live. [Terra Station](https://station.terra.money) and [Lunie Wallet](https://app.lunie.io/terra) are supporting Terra chain with Cosmos ledger app.
-
-If not, see [Development](#development) section to install Terra leger app from source code.
-
+The Terra app is already available in [Ledger Live](https://www.ledger.com/pages/ledger-live). Our preferred and recommended hardware wallet!
 - Open Ledger Live and go to Settings (gear icon on the right):
 
+[Terra Station](https://station.terra.money) and [Lunie Wallet](https://app.lunie.io/terra) are supporting ledger.
+
+- Now search for Terra:
+
 ![](docs/img/terra_app1.png)
-
-- Enable developer mode (last option):
-
-![](docs/img/terra_app2.png)
-
-- Now go back to manager and search for Terra:
-
-![](docs/img/terra_app3.png)
 
 ## ATTENTION
 

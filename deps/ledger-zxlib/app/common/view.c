@@ -27,6 +27,7 @@
 #include "zxmacros.h"
 #include "view_templates.h"
 #include "tx.h"
+#include "app_mode.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -49,19 +50,9 @@ void h_error_accept(unsigned int _) {
 
 void h_sign_accept(unsigned int _) {
     UNUSED(_);
-
-    const uint8_t replyLen = app_sign();
-
+    app_sign();
     view_idle_show(0);
     UX_WAIT();
-
-    if (replyLen > 0) {
-        set_code(G_io_apdu_buffer, replyLen, APDU_CODE_OK);
-        io_exchange(CHANNEL_APDU | IO_RETURN_AFTER_TX, replyLen + 2);
-    } else {
-        set_code(G_io_apdu_buffer, 0, APDU_CODE_SIGN_VERIFY_ERROR);
-        io_exchange(CHANNEL_APDU | IO_RETURN_AFTER_TX, 2);
-    }
 }
 
 void h_sign_reject(unsigned int _) {
@@ -79,6 +70,18 @@ void h_paging_init() {
     viewdata.pageCount = 1;
 }
 
+uint8_t h_paging_can_increase() {
+    if (viewdata.pageIdx + 1 < viewdata.pageCount) {
+        return 1;
+    } else {
+        // passed page count, go to next index
+        if (viewdata.itemIdx + 1 < viewdata.itemCount) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void h_paging_increase() {
     if (viewdata.pageIdx + 1 < viewdata.pageCount) {
         // increase page
@@ -90,6 +93,17 @@ void h_paging_increase() {
             viewdata.pageIdx = 0;
         }
     }
+}
+
+uint8_t h_paging_can_decrease() {
+    if (viewdata.pageIdx != 0) {
+        return 1;
+    } else {
+        if (viewdata.itemIdx > 0) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 void h_paging_decrease() {
@@ -115,6 +129,17 @@ view_error_t h_review_update_data() {
     tx_error_t err = tx_no_error;
 
     do {
+        err = tx_getNumItems(&viewdata.itemCount);
+        viewdata.itemCount++;
+
+        if (err == tx_no_data) {
+            return view_no_data;
+        }
+
+        if (err != tx_no_error) {
+            return view_error_detected;
+        }
+
         err = tx_getItem(viewdata.itemIdx,
                          viewdata.key, MAX_CHARS_PER_KEY_LINE,
                          viewdata.value, MAX_CHARS_PER_VALUE1_LINE,
@@ -124,14 +149,14 @@ view_error_t h_review_update_data() {
             return view_no_data;
         }
 
+        if (err != tx_no_error) {
+            return view_error_detected;
+        }
+
         if (viewdata.pageCount == 0) {
             h_paging_increase();
         }
     } while (viewdata.pageCount == 0);
-
-    if (err != tx_no_error) {
-        return view_error_detected;
-    }
 
     splitValueField();
     return view_no_error;
@@ -140,12 +165,15 @@ view_error_t h_review_update_data() {
 view_error_t h_addr_update_item(uint8_t idx) {
     MEMZERO(viewdata.value, MAX_CHARS_PER_VALUE1_LINE);
 
-    switch (idx) {
-        case 0: return view_printAddr();
-        case 1: return view_printPath();
-        default:
-            return view_error_detected;
+    if (idx == 0) {
+        return view_printAddr();
     }
+
+    if (idx == 1 && app_mode_expert()) {
+        return view_printPath();
+    }
+
+    return view_error_detected;
 }
 
 void io_seproxyhal_display(const bagl_element_t *element) {
@@ -156,13 +184,18 @@ void view_init(void) {
     UX_INIT();
 }
 
-void view_idle_show(unsigned int ignored) {
-    view_idle_show_impl();
+void view_idle_show(uint8_t item_idx) {
+    view_idle_show_impl(item_idx);
 }
 
 void view_address_show(address_kind_e addressKind) {
     viewdata.addrKind = addressKind;
-    viewdata.itemCount = VIEW_ADDRESS_ITEM_COUNT;          // Address, path, etc.
+
+    viewdata.itemCount = 1;
+    if (app_mode_expert()) {
+        viewdata.itemCount = 2;
+    }
+
     view_address_show_impl();
 }
 

@@ -22,6 +22,8 @@ extern "C" {
 #include <stdint.h>
 #include <stddef.h>
 
+#define CLA                  0x55
+
 #define HDPATH_LEN_DEFAULT   5
 
 #define HDPATH_0_DEFAULT     (0x80000000u | 0x2cu)
@@ -37,12 +39,31 @@ typedef enum {
 } address_kind_e;
 
 #define VIEW_ADDRESS_OFFSET_SECP256K1       PK_LEN_SECP256K1
-#define VIEW_ADDRESS_ITEM_COUNT             2
 #define VIEW_ADDRESS_LAST_PAGE_DEFAULT      0
 
-#define MENU_MAIN_APP_LINE1 "Terra"
-#define MENU_MAIN_APP_LINE2 "App"
-#define APPVERSION_LINE2 ""
+#define MENU_MAIN_APP_LINE1                "Terra"
+#define MENU_MAIN_APP_LINE2                "ready"
+#define APPVERSION_LINE1                   "Version:"
+#define APPVERSION_LINE2                   ("v" APPVERSION)
+
+#define CRYPTO_BLOB_SKIP_BYTES              0
+#define COIN_DEFAULT_CHAINID                "columbus-3"
+
+// In non-expert mode, the app will convert from uluna to LUNA
+#define COIN_DEFAULT_DENOM_LUNA             "uluna"
+#define COIN_DEFAULT_DENOM_KRT              "ukrw"
+#define COIN_DEFAULT_DENOM_SDT              "usdr"
+#define COIN_DEFAULT_DENOM_UST              "uusd"
+#define COIN_DEFAULT_DENOM_MNT              "umnt"
+
+#define COIN_DEFAULT_DENOM_LUNA_REPR        "LUNA"
+#define COIN_DEFAULT_DENOM_KRT_REPR         "KRT"
+#define COIN_DEFAULT_DENOM_SDT_REPR         "SDT"
+#define COIN_DEFAULT_DENOM_UST_REPR         "UST"
+#define COIN_DEFAULT_DENOM_MNT_REPR         "MNT"
+
+#define COIN_DEFAULT_DENOM_FACTOR           6
+
 
 #ifdef __cplusplus
 }
