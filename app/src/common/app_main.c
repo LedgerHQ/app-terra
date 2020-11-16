@@ -128,6 +128,7 @@ bool process_chunk(volatile uint32_t *tx, uint32_t rx) {
     uint32_t added;
     switch (payloadType) {
         case 0:
+            tx_initialize();
             tx_reset();
             extractHDPath(rx, OFFSET_DATA);
             return false;
