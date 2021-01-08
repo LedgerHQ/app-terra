@@ -205,6 +205,7 @@ parser_error_t tx_indexRootFields() {
                     if (parser_tx_obj.flags.msg_type_grouping && is_msg_type_field(tmp_key)) {
                         // First message, initialize expected type
                         if (parser_tx_obj.filter_msg_type_count == 0) {
+
                             if (strlen(tmp_val) >= sizeof(reference_msg_type)) {
                                 return parser_unexpected_type;
                             }
