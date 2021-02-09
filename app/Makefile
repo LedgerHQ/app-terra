@@ -32,8 +32,6 @@ APPVERSION_P=2
 
 APPPATH = "44'/330'"
 APP_LOAD_PARAMS = --appFlags 0x200 --delete $(COMMON_LOAD_PARAMS) --path $(APPPATH)
-# New app, activate the 'Pending review' banner
-APP_LOAD_PARAMS += --tlvraw 9F:01
 
 ifeq ($(TARGET_NAME),TARGET_NANOS)
 SCRIPT_LD:=$(CURDIR)/script.ld
