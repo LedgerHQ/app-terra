@@ -102,28 +102,17 @@
       "memo": "testmemo",
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -134,10 +123,10 @@
       "0 | Chain ID : columbus-3",
       "1 | Account : 0",
       "2 | Sequence : 1",
-      "3 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "4 | Source Coins : 10 atom",
-      "5 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "6 | Dest Coins : 10 atom",
+      "3 | Type : Send",
+      "4 | Amount : 10 atom",
+      "5 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "6 | To : terraaccaddr1da6hgur4wse3jx32",
       "7 | Memo : testmemo",
       "8 | Fee : 5 photon",
       "9 | Gas : 10000"
@@ -161,28 +150,17 @@
       "memo": "testmemo",
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -190,10 +168,10 @@
     "parsingErr": "No error",
     "validationErr": "No error",
     "expected": [
-      "0 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "1 | Source Coins : 10 atom",
-      "2 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "3 | Dest Coins : 10 atom",
+      "0 | Type : Send",
+      "1 | Amount : 10 atom",
+      "2 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "3 | To : terraaccaddr1da6hgur4wse3jx32",
       "4 | Memo : testmemo",
       "5 | Fee : 5 photon"
     ],
@@ -215,28 +193,17 @@
       },
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -247,10 +214,10 @@
       "0 | Chain ID : test-chain-1",
       "1 | Account : 0",
       "2 | Sequence : 1",
-      "3 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "4 | Source Coins : 10 atom",
-      "5 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "6 | Dest Coins : 10 atom",
+      "3 | Type : Send",
+      "4 | Amount : 10 atom",
+      "5 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "6 | To : terraaccaddr1da6hgur4wse3jx32",
       "7 | Fee : 5 photon",
       "8 | Gas : 10000"
     ],
@@ -272,28 +239,17 @@
       },
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -301,10 +257,10 @@
     "parsingErr": "No error",
     "validationErr": "JSON Missing memo",
     "expected": [
-      "0 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "1 | Source Coins : 10 atom",
-      "2 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "3 | Dest Coins : 10 atom",
+      "0 | Type : Send",
+      "1 | Amount : 10 atom",
+      "2 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "3 | To : terraaccaddr1da6hgur4wse3jx32",      
       "4 | Fee : 5 photon"
     ],
     "expert": false
@@ -326,28 +282,17 @@
       "memo": "",
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -358,10 +303,10 @@
       "0 | Chain ID : test-chain-1",
       "1 | Account : 0",
       "2 | Sequence : 1",
-      "3 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "4 | Source Coins : 10 atom",
-      "5 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "6 | Dest Coins : 10 atom",
+      "3 | Type : Send",
+      "4 | Amount : 10 atom",
+      "5 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "6 | To : terraaccaddr1da6hgur4wse3jx32",
       "7 | Fee : 5 photon",
       "8 | Gas : 10000"
     ],
@@ -384,28 +329,17 @@
       "memo": "",
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -413,10 +347,10 @@
     "parsingErr": "No error",
     "validationErr": "No error",
     "expected": [
-      "0 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "1 | Source Coins : 10 atom",
-      "2 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "3 | Dest Coins : 10 atom",
+      "0 | Type : Send",
+      "1 | Amount : 10 atom",
+      "2 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "3 | To : terraaccaddr1da6hgur4wse3jx32",
       "4 | Fee : 5 photon"
     ],
     "expert": false
@@ -438,52 +372,30 @@
       "memo": "testmemo",
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         },
         {
-          "inputs": [
-            {
-              "address": "test2",
-              "coins": [
-                {
-                  "amount": "20",
-                  "denom": "bitcoin"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "test3",
-              "coins": [
-                {
-                  "amount": "50",
-                  "denom": "ripple"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "test2",
+            "to_address": "test3",
+            "amount": [
+              {
+                "amount": "20",
+                "denom": "bitcoin"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -494,17 +406,16 @@
       "0 | Chain ID : test-chain-1",
       "1 | Account : 0",
       "2 | Sequence : 1",
-      "3 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "4 | Source Coins : 10 atom",
-      "5 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "6 | Dest Coins : 10 atom",
-      "7 | Source Address : test2",
-      "8 | Source Coins : 20 bitcoin",
-      "9 | Dest Address : test3",
-      "10 | Dest Coins : 50 ripple",
-      "11 | Memo : testmemo",
-      "12 | Fee : 5 photon",
-      "13 | Gas : 10000"
+      "3 | Type : Send",
+      "4 | Amount : 10 atom",
+      "5 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "6 | To : terraaccaddr1da6hgur4wse3jx32",
+      "7 | Amount : 20 bitcoin",
+      "8 | From : test2",
+      "9 | To : test3",
+      "10 | Memo : testmemo",
+      "11 | Fee : 5 photon",
+      "12 | Gas : 10000"
     ],
     "expert": true
   },
@@ -525,52 +436,30 @@
       "memo": "testmemo",
       "msgs": [
         {
-          "inputs": [
-            {
-              "address": "terraaccaddr1d9h8qat5e4ehc5",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "terraaccaddr1da6hgur4wse3jx32",
-              "coins": [
-                {
-                  "amount": "10",
-                  "denom": "atom"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "terraaccaddr1d9h8qat5e4ehc5",
+            "to_address": "terraaccaddr1da6hgur4wse3jx32",
+            "amount": [
+              {
+                "amount": "10",
+                "denom": "atom"
+              }
+            ]
+          }
         },
         {
-          "inputs": [
-            {
-              "address": "test2",
-              "coins": [
-                {
-                  "amount": "20",
-                  "denom": "bitcoin"
-                }
-              ]
-            }
-          ],
-          "outputs": [
-            {
-              "address": "test3",
-              "coins": [
-                {
-                  "amount": "50",
-                  "denom": "ripple"
-                }
-              ]
-            }
-          ]
+          "type": "bank/MsgSend",
+          "value": {
+            "from_address": "test2",
+            "to_address": "test3",
+            "amount": [
+              {
+                "amount": "20",
+                "denom": "bitcoin"
+              }
+            ]
+          }
         }
       ],
       "sequence": "1"
@@ -578,16 +467,15 @@
     "parsingErr": "No error",
     "validationErr": "No error",
     "expected": [
-      "0 | Source Address : terraaccaddr1d9h8qat5e4ehc5",
-      "1 | Source Coins : 10 atom",
-      "2 | Dest Address : terraaccaddr1da6hgur4wse3jx32",
-      "3 | Dest Coins : 10 atom",
-      "4 | Source Address : test2",
-      "5 | Source Coins : 20 bitcoin",
-      "6 | Dest Address : test3",
-      "7 | Dest Coins : 50 ripple",
-      "8 | Memo : testmemo",
-      "9 | Fee : 5 photon"
+      "0 | Type : Send",
+      "1 | Amount : 10 atom",
+      "2 | From : terraaccaddr1d9h8qat5e4ehc5",
+      "3 | To : terraaccaddr1da6hgur4wse3jx32",
+      "4 | Amount : 20 bitcoin",
+      "5 | From : test2",
+      "6 | To : test3",
+      "7 | Memo : testmemo",
+      "8 | Fee : 5 photon"
     ],
     "expert": false
   },

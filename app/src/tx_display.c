@@ -423,7 +423,7 @@ static const key_subst_t key_substitutions[] = {
         {"fee/gas",                           "Gas"},
         {"msgs/type",                         "Type"},
 
-        // FIXME: Are these obsolete?? multisend?
+        // MsgMultiSend
         {"msgs/value/inputs/address",               "Source Address"},
         {"msgs/value/inputs/coins",                 "Source Coins"},
         {"msgs/value/outputs/address",              "Dest Address"},
@@ -475,8 +475,8 @@ static const key_subst_t key_substitutions[] = {
 //        {"msgs/value/validator_address", "Validator"},      // duplicated
 
         // WASM
-        {"msgs/value/owner", "Owner"},
-        {"msgs/value/new_onwer", "New Owner"},
+        {"msgs/value/admin", "Owner"},
+        {"msgs/value/new_admin", "New Owner"},
         {"msgs/value/contract", "Contract"},
         {"msgs/value/migrate_msg", "Migrate Msg"},
         {"msgs/value/new_code_id", "New CodeID"},
@@ -486,7 +486,6 @@ static const key_subst_t key_substitutions[] = {
         {"msgs/value/init_coins", "Init Coins"},
         {"msgs/value/code_id", "CodeID"},
         {"msgs/value/init_msg", "Init Msg"},
-        {"msgs/value/migratable", "Migratable"},
 
         // Oralce
         {"msgs/value/hash", "Hash"},
@@ -499,14 +498,17 @@ static const key_subst_t key_substitutions[] = {
         {"msgs/value/delegate", "Delegate"},
         {"msgs/value/exchange_rates", "Exchange Rates"},
 
-        // MsgAuthorization
+        // Authz
         {"msgs/value/granter", "Granter"},
         {"msgs/value/grantee", "Grantee"},
-        {"msgs/value/authorization_msg_type", "Grant Msg Type"},
-        {"msgs/value/authorization/type", "Authorization Type"},
-        {"msgs/value/authorization/value/grant_msg_type", "Grant Msg Type"},
-        {"msgs/value/authorization/value/spend_limit", "Spend Limit"},
-        {"msgs/value/period", "Period"},
+        {"msgs/value/grant", "Grant"},
+        {"msgs/value/msgs", "Msgs"},
+        {"msgs/value/msg_type_url", "MsgTypeURL"},
+
+        // Feegrant
+        {"msgs/value/granter", "Granter"},
+
+
 };
 
 parser_error_t tx_display_make_friendly() {
