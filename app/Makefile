@@ -27,16 +27,14 @@ include $(BOLOS_SDK)/Makefile.defines
 # Main app configuration
 APPNAME = "Terra"
 APPVERSION_M=1
-APPVERSION_N=1
+APPVERSION_N=2
 APPVERSION_P=0
 
 APPPATH = "44'/330'"
 APP_LOAD_PARAMS = --appFlags 0x200 --delete $(COMMON_LOAD_PARAMS) --path $(APPPATH)
-# New app, activate the 'Pending review' banner
-APP_LOAD_PARAMS += --tlvraw 9F:01
 
 ifeq ($(TARGET_NAME),TARGET_NANOS)
-SCRIPT_LD:=$(CURDIR)/script.ld
+APP_STACK_SIZE:=1212
 ICONNAME:=$(CURDIR)/nanos_icon.gif
 endif
 
@@ -145,9 +143,11 @@ LDFLAGS  += -O3 -Os
 LDLIBS   += -lm -lgcc -lc
 
 ##########################
+GLYPH_SRC_DIR = glyphs
 include $(BOLOS_SDK)/Makefile.glyphs
 
 APP_SOURCE_PATH += $(MY_DIR)/src
+APP_SOURCE_PATH += $(MY_DIR)/glyphs
 APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/include
 APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/src
 APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/app/common
