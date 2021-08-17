@@ -506,9 +506,7 @@ static const key_subst_t key_substitutions[] = {
         {"msgs/value/msg_type_url", "MsgTypeURL"},
 
         // Feegrant
-        {"msgs/value/granter", "Granter"},
-
-
+        {"msgs/value/allowance", "Allowance"},
 };
 
 parser_error_t tx_display_make_friendly() {
