@@ -27,8 +27,8 @@ include $(BOLOS_SDK)/Makefile.defines
 # Main app configuration
 APPNAME = "Terra"
 APPVERSION_M=1
-APPVERSION_N=1
-APPVERSION_P=3
+APPVERSION_N=2
+APPVERSION_P=0
 
 APPPATH = "44'/330'"
 APP_LOAD_PARAMS = --appFlags 0x200 --delete $(COMMON_LOAD_PARAMS) --path $(APPPATH)

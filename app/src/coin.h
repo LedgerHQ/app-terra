@@ -47,7 +47,7 @@ typedef enum {
 #define APPVERSION_LINE2                   ("v" APPVERSION)
 
 #define CRYPTO_BLOB_SKIP_BYTES              0
-#define COIN_DEFAULT_CHAINID                "columbus-3"
+#define COIN_DEFAULT_CHAINID                "columbus-5"
 
 // In non-expert mode, the app will convert from uluna to LUNA
 #define COIN_DEFAULT_DENOM_LUNA             "uluna"
