@@ -508,6 +508,14 @@ static const key_subst_t key_substitutions[] = {
 
         // Feegrant
         {"msgs/value/allowance", "Allowance"},
+
+        // IBC
+        {"msgs/value/source_port", "Port"},
+        {"msgs/value/source_channel", "Channel"},
+        {"msgs/value/token", "Token"},
+        {"msgs/value/receiver", "To"},
+        {"msgs/value/timeout_height", "Timeout Height"},
+        {"msgs/value/timeout_timestamp", "Timeout Time"},
 };
 
 parser_error_t tx_display_make_friendly() {
