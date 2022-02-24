@@ -85,6 +85,7 @@ static const key_subst_t value_substitutions[] = {
         {"msgauth/MsgGrantAuthorization",               "Grant Authorization"},
         {"msgauth/MsgRevokeAuthorization",              "Revote Authorization"},
         {"msgauth/MsgExecAuthorized",                   "Execute Authorized"},
+        {"cosmos-sdk/MsgTransfer",                      "Transfer"},
 };
 
 parser_error_t tx_getToken(uint16_t token_index,
