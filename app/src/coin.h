@@ -1,5 +1,5 @@
 /*******************************************************************************
-*  (c) 2019 Zondax GmbH
+*  (c) 2019-2021 Zondax GmbH
 *
 *  Licensed under the Apache License, Version 2.0 (the "License");
 *  you may not use this file except in compliance with the License.
@@ -19,9 +19,6 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-#include <stddef.h>
-
 #define CLA                  0x55
 
 #define HDPATH_LEN_DEFAULT   5
@@ -30,7 +27,6 @@ extern "C" {
 #define HDPATH_1_DEFAULT     (0x80000000u | 0x14A)
 #define HDPATH_2_DEFAULT     (0x80000000u | 0u)
 #define HDPATH_3_DEFAULT     (0u)
-#define HDPATH_4_DEFAULT     (0u)
 
 #define PK_LEN_SECP256K1     33u
 
@@ -46,8 +42,7 @@ typedef enum {
 #define APPVERSION_LINE1                   "Version:"
 #define APPVERSION_LINE2                   ("v" APPVERSION)
 
-#define CRYPTO_BLOB_SKIP_BYTES              0
-#define COIN_DEFAULT_CHAINID                "columbus-3"
+#define COIN_DEFAULT_CHAINID                "columbus-5"
 
 // In non-expert mode, the app will convert from uluna to LUNA
 #define COIN_DEFAULT_DENOM_LUNA             "uluna"
@@ -63,6 +58,19 @@ typedef enum {
 #define COIN_DEFAULT_DENOM_MNT_REPR         "MNT"
 
 #define COIN_DEFAULT_DENOM_FACTOR           6
+#define COIN_DEFAULT_DENOM_TRIMMING         6
+
+#define COIN_DENOM_MAXSIZE                  50
+#define COIN_AMOUNT_MAXSIZE                 50
+
+#define COIN_MAX_CHAINID_LEN                20
+#define INDEXING_TMP_KEYSIZE 70
+#define INDEXING_TMP_VALUESIZE 70
+#define INDEXING_GROUPING_REF_TYPE_SIZE 70
+#define INDEXING_GROUPING_REF_FROM_SIZE 70
+
+#define MENU_MAIN_APP_LINE2_SECRET         "?"
+#define COIN_SECRET_REQUIRED_CLICKS         0
 
 
 #ifdef __cplusplus
