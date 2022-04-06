@@ -461,6 +461,8 @@ static const key_subst_t key_substitutions[] = {
         {"fee/granter",                       "Granter"},
         {"fee/payer",                         "Payer"},
         {"msgs/type",                         "Type"},
+        {"tip/amount",                        "Tip"},
+        {"tip/tipper",                        "Tipper"},
 
         // FIXME: Are these obsolete?? multisend?
         {"msgs/value/inputs/address",               "Source Address"},

@@ -85,11 +85,11 @@ __Z_INLINE bool_t parser_isAmount(char *key) {
         return bool_true;
     }
 
-    if (strcmp(key, "msgs/inputs/coins") == 0) {
+    if (strcmp(key, "msgs/value/inputs/coins") == 0) {
         return bool_true;
     }
 
-    if (strcmp(key, "msgs/outputs/coins") == 0) {
+    if (strcmp(key, "msgs/value/outputs/coins") == 0) {
         return bool_true;
     }
 

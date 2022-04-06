@@ -89,7 +89,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('terra1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykg59dc5')
+      expect(resp.bech32_address).toEqual('terra1rpml0hh6kc8g6at2lsatzkd550yc2ngnsachtt')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()
@@ -118,7 +118,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('terra1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykg59dc5')
+      expect(resp.bech32_address).toEqual('terra1rpml0hh6kc8g6at2lsatzkd550yc2ngnsachtt')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()
@@ -171,7 +171,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('terra1ex7gkwwmq4vcgdwcalaq3t20pgwr37u640vqqh')
+      expect(resp.bech32_address).toEqual('terra1w546yt00vx7ed7c6kkrdy8df3r6rpln58wemg7')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()

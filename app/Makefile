@@ -52,12 +52,12 @@ $(info ************ LOGGING ENABLED ************)
 endif
 
 ifndef COIN
-COIN=ATOM
+COIN=LUNA
 endif
 
 $(info COIN  = [$(COIN)])
 
-ifeq ($(COIN),ATOM)
+ifeq ($(COIN),LUNA)
 # Main app configuration
 APPNAME = "Terra"
 APPPATH = "44'/330'"

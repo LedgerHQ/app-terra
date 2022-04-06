@@ -72,7 +72,7 @@ export const example_tx_str_basic = {
 
 export const example_tx_str_expert = {
   account_number: '108',
-  chain_id: 'cosmoshub-2',
+  chain_id: 'columbus-5',
   fee: {
     amount: [
       {
