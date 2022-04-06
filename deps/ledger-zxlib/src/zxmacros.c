@@ -39,7 +39,7 @@ size_t asciify_ext(const char *utf8_in, char *ascii_only_out) {
 }
 
 void handle_stack_overflow() {
-#if defined (TARGET_NANOS) || defined(TARGET_NANOX)
+#if defined (TARGET_NANOS) || defined(TARGET_NANOX) || defined(TARGET_NANOS2)
     io_seproxyhal_se_reset();
 #else
     while(1);

@@ -21,7 +21,7 @@
 #include <string.h>
 #include "zxmacros.h"
 
-#if defined(TARGET_NANOX)
+#if defined(TARGET_NANOX) || defined(TARGET_NANOS2)
 #define RAM_BUFFER_SIZE 8192
 #define FLASH_BUFFER_SIZE 16384
 #elif defined(TARGET_NANOS)
@@ -41,7 +41,7 @@ typedef struct {
 storage_t N_appdata_impl __attribute__ ((aligned(64)));
 #define N_appdata (*(storage_t *)PIC(&N_appdata_impl))
 
-#elif defined(TARGET_NANOX)
+#elif defined(TARGET_NANOX) || defined(TARGET_NANOS2)
 storage_t const N_appdata_impl __attribute__ ((aligned(64)));
 #define N_appdata (*(volatile storage_t *)PIC(&N_appdata_impl))
 #endif

@@ -37,7 +37,7 @@ void handle_stack_overflow();
 #include "bolos_target.h"
 #endif
 
-#if defined(TARGET_NANOX)
+#if defined(TARGET_NANOX) || defined(TARGET_NANOS2)
 #define NV_CONST const
 #define NV_VOL volatile
 #else
@@ -51,7 +51,7 @@ void handle_stack_overflow();
 
 #define NV_ALIGN __attribute__ ((aligned(64)))
 
-#if defined (TARGET_NANOS) || defined(TARGET_NANOX)
+#if defined (TARGET_NANOS) || defined(TARGET_NANOX) || defined(TARGET_NANOS2)
 
 __Z_INLINE void debug_log(char *buf)
 {
@@ -67,7 +67,7 @@ __Z_INLINE void debug_log(char *buf)
 #include "os.h"
 #include "cx.h"
 
-#if defined(TARGET_NANOX)
+#if defined(TARGET_NANOX) || defined(TARGET_NANOS2)
 #include "ux.h"
 #else
 #include "os_io_seproxyhal.h"
@@ -85,7 +85,7 @@ extern unsigned int app_stack_canary;
     io_seproxyhal_general_status(); \
     WAIT_EVENT()
 
-#if defined(TARGET_NANOX)
+#if defined(TARGET_NANOX) || defined(TARGET_NANOS2)
 #define IS_UX_ALLOWED (G_ux_params.len != BOLOS_UX_IGNORE && G_ux_params.len != BOLOS_UX_CONTINUE)
 #else
 #define IS_UX_ALLOWED (ux.params.len != BOLOS_UX_IGNORE && ux.params.len != BOLOS_UX_CONTINUE)
