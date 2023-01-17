@@ -59,7 +59,7 @@ $(info COIN  = [$(COIN)])
 
 ifeq ($(COIN),LUNA)
 # Main app configuration
-APPNAME = "Terra"
+APPNAME = "Station"
 APPPATH = "44'/330'"
 else
 define error_message
