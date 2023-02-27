@@ -58,7 +58,7 @@ $(info COIN  = [$(COIN)])
 ifeq ($(COIN),LUNA)
 # Main app configuration
 APPNAME = "Station"
-APPPATH = "44'/330'"
+APPPATH = "44''"
 else
 define error_message
 
