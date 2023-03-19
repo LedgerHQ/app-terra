@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  ******************************************************************************* */
-import { DEFAULT_START_OPTIONS, DeviceModel } from '@zondax/zemu'
+import { DEFAULT_START_OPTIONS, IDeviceModel } from '@zondax/zemu'
 import {DEFAULT_KEY_DELAY} from "@zondax/zemu/src/constants";
 
 const Resolve = require('path').resolve
@@ -32,7 +32,7 @@ export const DEFAULT_OPTIONS = {
   X11: false,
 }
 
-export const DEVICE_MODELS: DeviceModel[] = [
+export const DEVICE_MODELS: IDeviceModel[] = [
   { name: 'nanos', prefix: 'S', path: APP_PATH_S },
   { name: 'nanox', prefix: 'X', path: APP_PATH_X },
   { name: 'nanosp', prefix: 'SP', path: APP_PATH_SP },
