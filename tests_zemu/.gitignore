@@ -69,3 +69,5 @@ TODO\.md
 
 \dist
 snapshots-tmp
+
+package-lock.json

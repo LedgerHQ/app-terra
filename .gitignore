@@ -100,3 +100,4 @@ fuzz-*.log
 
 .vscode/
 tests_zemu/yarn.lock
+tests_zemu/package-lock.json
