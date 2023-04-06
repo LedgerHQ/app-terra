@@ -77,6 +77,7 @@ cmake-build-fuzz/
 /app/bin/
 /app/debug/
 /app/obj/
+/app/build/
 
 \deps/*
 !\deps/nanos-secure-sdk
@@ -101,3 +102,4 @@ fuzz-*.log
 .vscode/
 tests_zemu/yarn.lock
 tests_zemu/package-lock.json
+node_modules/
