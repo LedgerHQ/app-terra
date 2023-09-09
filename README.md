@@ -72,7 +72,7 @@ then run:
 
 - Install `node > v13.0`. We typically recommend using `n`
 
-- You will need python 3 and then run
+- You will need python3 and then run
     - `make deps`
 
 - This project requires Ledger firmware 1.6
