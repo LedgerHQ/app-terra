@@ -1,3 +1,5 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "modernize-deprecated-headers"
 /*******************************************************************************
 *   (c) 2018, 2019 Zondax GmbH
 *
@@ -26,6 +28,8 @@ extern "C" {
 #endif
 
 #define MAX_RECURSION_DEPTH  6
+#define MULTISEND_KEY_IDX    9
+extern bool extraDepthLevel;
 
 #define INIT_QUERY_CONTEXT(_KEY, _KEY_LEN, _VAL, _VAL_LEN, _PAGE_IDX, _MAX_LEVEL) \
     parser_tx_obj.query._item_index_current = 0; \
@@ -42,7 +46,7 @@ extern "C" {
     parser_tx_obj.query.out_key_len = (_KEY_LEN); \
     parser_tx_obj.query.out_val_len = (_VAL_LEN);
 
-parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_token_index);
+parser_error_t tx_traverse_find(uint16_t root_token_index, uint16_t *ret_value_token_index);
 
 // Traverses transaction data and fills tx_context
 parser_error_t tx_traverse(int16_t root_token_index, uint8_t *numChunks);
@@ -63,3 +67,5 @@ __Z_INLINE bool is_msg_from_field(char *field_name) {
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic pop

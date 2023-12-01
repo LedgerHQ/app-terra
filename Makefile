@@ -25,5 +25,10 @@ default:
 	$(MAKE) -C app
 %:
 	$(info "Calling app Makefile for target $@")
-	$(MAKE) -C app $@
+	COIN=$(COIN) $(MAKE) -C app $@
 endif
+
+test_all:
+	make zemu_install
+	make clean_build && make
+	make zemu_test

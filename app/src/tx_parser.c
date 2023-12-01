@@ -1,3 +1,5 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
 /*******************************************************************************
 *   (c) 2018, 2019 Zondax GmbH
 *
@@ -15,10 +17,12 @@
 ********************************************************************************/
 
 #include <jsmn.h>
-#include <stdio.h>
 #include "tx_parser.h"
 #include "zxmacros.h"
+#include "zxformat.h"
 #include "parser_impl.h"
+
+bool extraDepthLevel = false;
 
 // strcat but source does not need to be terminated (a chunk from a bigger string is concatenated)
 // dst_max is measured in bytes including the space for NULL termination
@@ -33,10 +37,9 @@ __Z_INLINE void strcat_chunk_s(char *dst, uint16_t dst_max, const char *src_chun
         src_chunk_size = space_left;
     }
 
+    // Check bounds
     if (src_chunk_size > 0) {
-        // Check bounds
-        MEMCPY(dst + prev_size, src_chunk, src_chunk_size);
-        // terminate
+        MEMMOVE(dst + prev_size, src_chunk, src_chunk_size);
         *(dst + prev_size + src_chunk_size) = 0;
     }
 }
@@ -50,6 +53,42 @@ __Z_INLINE void strcat_chunk_s(char *dst, uint16_t dst_max, const char *src_chun
 ///////////////////////////
 
 static const key_subst_t value_substitutions[] = {
+        {"cosmos-sdk/MsgSend",                              "Send"},
+        {"cosmos-sdk/MsgMultiSend",                         "MultiSend"},
+        {"cosmos-sdk/MsgSwapSend",                          "Swap Send"},
+        {"cosmos-sdk/MsgSwap",                              "Swap"},
+        {"cosmos-sdk/MsgExchangeRatePrevote",               "ExchangeRate Prevote"},
+        {"cosmos-sdk/MsgExchangeRateVote",                  "ExchangeRate Vote"},
+        {"cosmos-sdk/MsgDelegateFeedConsent",               "Delegate Feed Consent"},
+        {"cosmos-sdk/MsgAggregateExchangeRatePrevote",      "Aggregate ExchangeRate Prevote"},
+        {"cosmos-sdk/MsgAggregateExchangeRateVote",         "Aggregate ExchangeRate Vote"},
+        {"cosmos-sdk/MsgDelegate",                          "Delegate"},
+        {"cosmos-sdk/MsgUndelegate",                        "Undelegate"},
+        {"cosmos-sdk/MsgBeginRedelegate",                   "Redelegate"},
+        {"cosmos-sdk/MsgCreateValidator",                   "Create Validator"},
+        {"cosmos-sdk/MsgEditValidator",                     "Edit Validator"},
+        {"cosmos-sdk/MsgUnjail",                            "Unjail"},
+        {"cosmos-sdk/MsgSubmitProposal",                    "Propose"},
+        {"cosmos-sdk/MsgDeposit",                           "Deposit"},
+        {"cosmos-sdk/MsgVote",                              "Vote"},
+        {"cosmos-sdk/MsgStoreCode",                         "Store Code"},
+        {"cosmos-sdk/MsgInstantiateContract",               "Instantiate Contract"},
+        {"cosmos-sdk/MsgExecuteContract",                   "Execute Contract"},
+        {"cosmos-sdk/MsgMigrateContract",                   "Migrate Contract"},
+        {"cosmos-sdk/MsgUpdateContractOwner",               "Update Contract Owner"},
+        {"cosmos-sdk/MsgVerifyInvariant",                   "Verify Invariant"},
+        {"cosmos-sdk/MsgWithdrawDelegationReward",          "Withdraw Reward"},
+        {"cosmos-sdk/MsgWithdrawValidatorCommission",       "Withdraw Commission"},
+        {"cosmos-sdk/MsgModifyWithdrawAddress",             "Modify Withdraw Address"},
+        {"cosmos-sdk/MsgFundCommunityPool",                 "Fund Community Pool"},
+        {"cosmos-sdk/MsgSubmitEvidence",                    "Submit Evidence"},
+        {"cosmos-sdk/MsgSubmitProposal",                    "Submit Proposal"},
+        {"cosmos-sdk/MsgDeposit",                           "Deposit"},
+        {"cosmos-sdk/MsgVote",                              "Vote"},
+        {"cosmos-sdk/MsgGrantAuthorization",                "Grant Authorization"},
+        {"cosmos-sdk/MsgRevokeAuthorization",               "Revoke Authorization"},
+        {"cosmos-sdk/MsgExecAuthorized",                    "Execute Authorized"},
+        // classic
         {"bank/MsgSend",                                "Send"},
         {"bank/MsgMultiSend",                           "MultiSend"},
         {"market/MsgSwapSend",                          "Swap Send"},
@@ -83,8 +122,19 @@ static const key_subst_t value_substitutions[] = {
         {"gov/MsgDeposit",                              "Deposit"},
         {"gov/MsgVote",                                 "Vote"},
         {"msgauth/MsgGrantAuthorization",               "Grant Authorization"},
-        {"msgauth/MsgRevokeAuthorization",              "Revote Authorization"},
+        {"msgauth/MsgRevokeAuthorization",              "Revoke Authorization"},
         {"msgauth/MsgExecAuthorized",                   "Execute Authorized"},
+        {"cosmos-sdk/MsgSend",                        "Send"},
+        {"cosmos-sdk/MsgDelegate",                    "Delegate"},
+        {"cosmos-sdk/MsgUndelegate",                  "Undelegate"},
+        {"cosmos-sdk/MsgBeginRedelegate",             "Redelegate"},
+        {"cosmos-sdk/MsgSubmitProposal",              "Propose"},
+        {"cosmos-sdk/MsgDeposit",                     "Deposit"},
+        {"cosmos-sdk/MsgVote",                        "Vote"},
+        {"cosmos-sdk/MsgWithdrawDelegationReward",    "Withdraw Reward"},
+        {"cosmos-sdk/MsgWithdrawValidatorCommission", "Withdraw Val. Commission"},
+        {"cosmos-sdk/MsgMultiSend",                   "Multi Send"},
+        
 };
 
 parser_error_t tx_getToken(uint16_t token_index,
@@ -106,19 +156,20 @@ parser_error_t tx_getToken(uint16_t token_index,
     // empty strings are considered the first page
     *pageCount = 1;
     if (inLen > 0) {
-        for (uint8_t i = 0; i < array_length(value_substitutions); i++) {
+        for (uint32_t i = 0; i < array_length(value_substitutions); i++) {
             const char *substStr = value_substitutions[i].str1;
             const size_t substStrLen = strlen(substStr);
             if (inLen == substStrLen && !MEMCMP(inValue, substStr, substStrLen)) {
                 inValue = value_substitutions[i].str2;
                 inLen = strlen(value_substitutions[i].str2);
+                
+                //Extra Depth level for Multisend type
+                extraDepthLevel = (i == MULTISEND_KEY_IDX);
                 break;
-            }
+            }   
         }
 
-        pageStringExt(out_val, out_val_len,
-                      inValue, inLen,
-                      pageIdx, pageCount);
+        pageStringExt(out_val, out_val_len, inValue, inLen, pageIdx, pageCount);
 
     }
 
@@ -129,7 +180,7 @@ parser_error_t tx_getToken(uint16_t token_index,
     return parser_ok;
 }
 
-__Z_INLINE void append_key_item(int16_t token_index) {
+__Z_INLINE void append_key_item(uint16_t token_index) {
     if (*parser_tx_obj.query.out_key > 0) {
         // There is already something there, add separator
         strcat_chunk_s(parser_tx_obj.query.out_key,
@@ -141,7 +192,7 @@ __Z_INLINE void append_key_item(int16_t token_index) {
     const int16_t token_start = parser_tx_obj.json.tokens[token_index].start;
     const int16_t token_end = parser_tx_obj.json.tokens[token_index].end;
     const char *address_ptr = parser_tx_obj.tx + token_start;
-    const int16_t new_item_size = token_end - token_start;
+    const int32_t new_item_size = token_end - token_start;
 
     strcat_chunk_s(parser_tx_obj.query.out_key,
                    parser_tx_obj.query.out_key_len,
@@ -155,7 +206,7 @@ __Z_INLINE void append_key_item(int16_t token_index) {
 ///////////////////////////
 ///////////////////////////
 
-parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_token_index) {
+parser_error_t tx_traverse_find(uint16_t root_token_index, uint16_t *ret_value_token_index) {
     const jsmntype_t token_type = parser_tx_obj.json.tokens[root_token_index].type;
 
     CHECK_APP_CANARY()
@@ -220,8 +271,8 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
                 uint16_t key_index;
                 uint16_t value_index;
 
-                CHECK_PARSER_ERR(object_get_nth_key(&parser_tx_obj.json, root_token_index, i, &key_index));
-                CHECK_PARSER_ERR(object_get_nth_value(&parser_tx_obj.json, root_token_index, i, &value_index));
+                CHECK_PARSER_ERR(object_get_nth_key(&parser_tx_obj.json, root_token_index, i, &key_index))
+                CHECK_PARSER_ERR(object_get_nth_value(&parser_tx_obj.json, root_token_index, i, &value_index))
 
                 // Skip writing keys if we are actually exploring to count
                 append_key_item(key_index);
@@ -249,11 +300,11 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
             break;
         }
         case JSMN_ARRAY: {
-            for (int16_t i = 0; i < el_count; ++i) {
+            for (uint16_t i = 0; i < el_count; ++i) {
                 uint16_t element_index;
                 CHECK_PARSER_ERR(array_get_nth_element(&parser_tx_obj.json,
                                                        root_token_index, i,
-                                                       &element_index));
+                                                       &element_index))
                 CHECK_APP_CANARY()
 
                 // When iterating along an array,
@@ -277,3 +328,5 @@ parser_error_t tx_traverse_find(int16_t root_token_index, uint16_t *ret_value_to
 
     return parser_query_no_results;
 }
+
+#pragma clang diagnostic pop
