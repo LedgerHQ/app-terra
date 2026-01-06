@@ -22,7 +22,7 @@ TESTS_ZEMU_JS_DIR?=
 
 LEDGER_SRC=$(CURDIR)/app
 DOCKER_APP_SRC=/project
-DOCKER_APP_BIN=$(DOCKER_APP_SRC)/app/bin/app.elf
+DOCKER_APP_BIN=$(DOCKER_APP_SRC)/app/build/$(TARGET)/bin/app.elf
 
 DOCKER_BOLOS_SDK=/project/deps/nanos-secure-sdk
 DOCKER_BOLOS_SDKX=/project/deps/nano2-sdk
